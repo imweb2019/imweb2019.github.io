@@ -1,0 +1,269 @@
+<style>
+.font-20{font-size:20pt;}
+
+table.moncoStyle{
+    width:70%;
+    margin:0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    table-layout: fixed;
+}
+
+table.moncoStyle .title{
+    text-align: left;
+    width: 240px;
+}
+
+table.moncoStyle .title p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:100%;
+    margin-bottom: 0;
+}
+
+table.moncoStyle .score{
+    width:100px;
+}
+
+table.moncoStyle .score .star_point a{
+    font-size:10pt !important;
+}
+
+table.moncoStyle tbody{
+    border:0 !important;
+}
+
+table.moncoStyle tbody tr:hover{
+    cursor:pointer;
+}
+
+table.moncoStyle th{
+    height:30px;
+    text-align:center;
+    border-bottom: 1px solid #ddd;
+}
+
+table.moncoStyle td{
+    height:30px;
+    text-align:center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+table.moncoStyle tr.contentsArea{
+    display:none;
+}
+
+table.moncoStyle tr.contentsArea.on{
+    display:table-row;
+    cursor:default;
+}
+
+table.moncoStyle tr.contentsArea td{
+    text-align:left;
+    padding:20px 30px;
+}
+
+table.moncoStyle td{
+    border:0;
+    border-bottom:1px solid rgba(128, 128, 128, 0.15);
+}
+
+ul.moncoStyle{
+    list-style: none;
+    width:50%;
+    margin:0 auto;
+    padding:0;
+}
+
+#prod_detail_content_mobile .review_table .li_body.reviewOn .board_thumb_wrap{
+    display:none;
+}
+
+#prod_detail_content_mobile .review_table .li_body.reviewOn .list_text_title > div:not(.body_tools):not(.moncoReviewContents){
+    display: none;
+}
+
+#prod_detail_content_mobile .review_table .li_body:not(.reviewOn) .moncoReviewContents{
+    display: none;
+}
+
+.buy_btns .like_box,
+.buy_btns .btn-flat,
+.feed-summary .date,
+.comment_wrap .avatar,
+.reply_area .avatar,
+.reply_area .thumb-avatar,
+.list_text_title .badge,
+.list_text_title .reply_cnt,
+.modal_prod_detail .modal-header .tabled .badge,
+.moncoStyle .title .badge,
+.clearfix.table-cell.list-group.vertical-middle .text-13.options,
+.modal-body .text-gray.text-13,
+.clearfix.table-cell.list-group.list_text_title.vertical-middle .text-13.body_font_color_50
+{
+    display:none;
+}
+
+.review_table{
+    margin-top: 20px;
+}
+
+.comment_wrap .feed-summary{
+    padding-left: 30px;
+}
+
+.reply_area .feed-summary{
+    padding-left: 39px;
+}
+
+#review_form{
+    margin-top:20px;
+}
+
+#inputCopy{
+    vertical-align:middle;
+    margin-top:0px;
+    margin-right:3px;
+}
+
+@media (max-width: 768px){
+    table.moncoStyle{
+      width:100%;
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+
+    table.moncoStyle td{
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .contentsArea img {
+        max-width: 100% !important;
+    }
+
+    table.moncoStyle2{
+        display:none;
+    }
+}
+
+@media (min-width: 769px){
+    ul.moncoStyle2{
+        display:none;
+    }
+}
+
+ul.moncoStyle2{
+    padding:2px 0px;
+    border-top:2px solid lightgrey;
+    border-bottom:2px solid lightgrey;
+}
+
+ul.moncoStyle2 li{
+    list-style: none;
+    overflow-y: hidden;
+    position:relative;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+ul.moncoStyle2 li.active{
+    height:auto !important;
+}
+
+ul.moncoStyle2 li:not(:last-child){
+    border-bottom: 1px solid #d3d3d3;
+}
+
+ul.moncoStyle2 li > div.imgArea{
+    width:20%;
+    display:inline-block;
+    vertical-align: top;
+}
+
+ul.moncoStyle2 li:not(.active) > div.imgArea{
+	overflow:hidden;
+}
+
+ul.moncoStyle2 li > div.imgArea img{
+    width:100%;
+  height:100%;
+    height: auto !important;
+  object-fit: cover;
+}
+
+ul.moncoStyle2 li > div.imgArea img:not(:first-child){
+    margin-top: 7px;
+}
+
+ul.moncoStyle2 li > div.contentsArea{
+    padding-left:15px;
+    width:80%;
+    display:inline-block;
+    word-break: break-all;
+    font-size: 10pt;
+    height:100%;
+    overflow: hidden;
+}
+
+ul.moncoStyle2 li > div.infoArea{
+    position:absolute;
+    background-color: white;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    bottom: 1px;
+}
+
+ul.moncoStyle2 li > div.infoArea:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 20px;
+    background: white;
+    border-radius: 2px;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+ul.moncoStyle2 li.active > div.infoArea:before {
+    display:none !important;
+}
+
+ul.moncoStyle2 .star_point{
+    display: inline-block;
+    margin-left: 5px;
+}
+
+ul.moncoStyle2 .star_point a:not(.active){
+    color: #afb1b2 !important;
+}
+
+ul.moncoStyle2 .writer{
+    margin-left: 20px;
+}
+
+ul.moncoStyle2 .star_point a{
+    font-size: 10pt;
+}
+
+.shop-item .prod_icon.sale{
+    display:none;
+}
+
+.contentsArea img{
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.shop-content .buy_btns.mobile .n_pay .nPayCustomize{
+  	color: black !important;
+  	background-color: white !important;
+}
+
+</style>

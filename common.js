@@ -171,6 +171,8 @@ $(window).load(function(){
        }).on('touchstart', function(){
            touchmoved = false;
        });
+
+       cs_init();
     });
 
     function detail_init(){
@@ -448,4 +450,15 @@ $(window).load(function(){
       $(".order_detail .text-brand").before('<input type="checkbox" id="inputCopy" />');
       $(".order_detail input[name=deliv_call]").attr("placeholder", "연락처 (010-1234-5678)");
       $(".order_detail input[name=orderer_call]").attr("placeholder", "연락처 (010-1234-5678)");
+    }
+
+    function cs_init(){
+        var csMsg = "";
+        $.getJSON("cs.json", function(data) {
+            csMsg = data[Math.floor(Math.random() * 10)];
+        });
+
+        $(".personal_qna_wrap .qna_form textarea[name=comment_body]").each(function(){
+            $(this).attr("placeholder", csMsg);
+        });
     }

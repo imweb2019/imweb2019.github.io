@@ -454,7 +454,7 @@ $(window).load(function(){
 
     function cs_init(){
         var csMsg = "";
-        $.getJSON("cs.json", function(data) {
+        $.getJSON("https://imweb2019.github.io/cs.json", function(data) {
             csMsg = data[Math.floor(Math.random() * 10)];
         });
 

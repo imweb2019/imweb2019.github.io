@@ -1,5 +1,5 @@
 .font-20{font-size:20pt;}
-
+.hide{display:none;}
 table.moncoStyle{
     width:70%;
     margin:0 auto;
@@ -263,4 +263,34 @@ ul.moncoStyle2 .star_point a{
 .shop-content .buy_btns.mobile .n_pay .nPayCustomize{
   	color: black !important;
   	background-color: white !important;
+}
+
+.personal_qna_wrap #qna_form .textarea_block{
+    padding-left: 15px !important;
+    padding-right: 15px;
+}
+
+.personal_qna_wrap #qna_form .textarea_block textarea[name=comment_body]{
+    overflow:visible !important;
+    min-height: 180px !important;
+}
+
+.fr-placeholder{
+    display: none !important;
+}
+
+.fr-placeholder2{
+    color: #aaaaaa;
+    top: 0;
+    left: 0;
+    position: absolute;
+    font-size: 15px;
+    color: #aaa;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
 }

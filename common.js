@@ -1,4 +1,5 @@
 var commentObj;
+var csMsg = "";
 
 function getReviewDetail(obj){
     $.ajax({
@@ -33,7 +34,7 @@ $(window).load(function(){
     var tempHTML="";
     reviewTotalCount = $(".detail_review_wrap ._review_count_text").text();
 
-    // PC 리뷰 로딩 체크
+    // 리뷰 로딩 체크
     var countCode = setInterval( function() {
         loadCount++;
         if($("._review_wrap .li_board review_table .li_body").length>0 || loadCount>10){
@@ -44,13 +45,14 @@ $(window).load(function(){
         }
     },200);
 
-    // 모바일 리뷰 로딩 체크
+    // q&a 로딩 체크
     var countCode2 = setInterval( function() {
         loadCount2++;
-        if($("#prod_detail_content_mobile .review_table .li_body").length>0 || loadCount2>10){
+        if($("#qna_form").length>0 || loadCount2>10){
             clearInterval(countCode2);
             countCode2 = "";
             loadCount2=0;
+            cs_init();
         }
     },200);
 
@@ -172,7 +174,13 @@ $(window).load(function(){
            touchmoved = false;
        });
 
-       cs_init();
+       $(document).on("keyup focusin focusout", "#qna_form .editor_box .postBody .fr-element", function(e){
+           if($(this).html() == "<p><br></p>" || $(this).html() == ""){
+               $(this).parents(".postBody").find(".fr-placeholder2").removeClass("hide");
+           }else{
+               $(this).parents(".postBody").find(".fr-placeholder2").addClass("hide");
+           }
+       });
     });
 
     function detail_init(){
@@ -453,12 +461,21 @@ $(window).load(function(){
     }
 
     function cs_init(){
-        var csMsg = "";
-        $.getJSON("https://imweb2019.github.io/cs.json", function(data) {
-            csMsg = data[Math.floor(Math.random() * 10)];
+        $.ajax({
+            type: 'GET',
+            url: 'https://imweb2019.github.io/cs.json',
+            dataType: 'json',
+            success: function(data) {
+                csMsg = data[Math.floor(Math.random() * 10)];
+            },
+            async: false
         });
 
-        $(".personal_qna_wrap .qna_form textarea[name=comment_body]").each(function(){
+        $("#qna_form textarea[name=comment_body]").each(function(){
             $(this).attr("placeholder", csMsg);
+        });
+
+        $("#qna_form .editor_box .postBody .fr-element").each(function(){
+            $(this).after("<span class='fr-placeholder2'>"+csMsg+"</span>");
         });
     }

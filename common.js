@@ -181,6 +181,10 @@ $(window).load(function(){
                $(this).parents(".postBody").find(".fr-placeholder2").addClass("hide");
            }
        });
+
+       $(document).on("click", "#prod_detail_content_tab_mobile a", function(e){
+		  $('html, body').animate({scrollTop : $(".spacer").offset().top}, 400);
+		});
     });
 
     function detail_init(){

@@ -384,14 +384,14 @@ $(window).load(function(){
 
       tempHTML = reviewHTML;
 
-      if($(".review_table .li_body").length>0 && $("._prod_detail_tab_fixed a.on").hasClass("_detail")){
+      if($(".review_table .li_body").length>0 && $("._prod_detail_tab_fixed a.active").hasClass("_detail")){
           mobileReview();
             $(".moncoStyle2").find(".reviewInput").each(function(){
               getReviewDetail($(this));
             });
       }
 
-    if($(".review_table .li_body").length>0 && $("._prod_detail_tab_fixed a.on").hasClass("_review")){
+    if($(".review_table .li_body").length>0 && $("._prod_detail_tab_fixed a.active").hasClass("_review")){
           $("._prod_detail_detail_lazy_load_mobile").addClass("reviewOn");
       }
 

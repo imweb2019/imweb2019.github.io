@@ -1,5 +1,11 @@
 .font-20{font-size:20pt;}
 .hide{display:none;}
+
+.categorize.review-box,
+#prod_goods_form #tab_offset.m-btn-group.button_tab{
+    display:none;
+}
+
 table.moncoStyle{
     width:70%;
     margin:0 auto;

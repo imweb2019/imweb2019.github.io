@@ -306,8 +306,6 @@ $(window).load(function(){
 
       reviewHTML = '';
 
-      $(".categorize.review-box").css("display", "block");
-
       // 모바일
       if(commentObj.hasOwnProperty(idx)){
           reviewHTML += '<div><ul class="moncoStyle2">';
@@ -458,7 +456,6 @@ $(window).load(function(){
       $(".moncoStyle2 .imgArea img").each(function(){
           $(this).attr("data-src", $(this).attr("src"));
       });
-      $("#prod_goods_form #tab_offset.m-btn-group.button_tab").css("display", "block");
     }
 
     function order_init(){

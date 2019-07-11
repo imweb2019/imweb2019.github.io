@@ -1,23 +1,6 @@
 .font-20{font-size:20pt;}
 .hide{display:none;}
 
-.categorize.review-box,
-#prod_goods_form #tab_offset.m-btn-group.button_tab{
-    display:none;
-}
-
-@media (min-width: 768px){
-    #prod_goods_form #tab_offset.m-btn-group.button_tab {
-        display: none !important;
-    }
-}
-
-@media (max-width: 767px){
-    .categorize.review-box {
-        display: none !important;
-    }
-}
-
 table.moncoStyle{
     width:70%;
     margin:0 auto;

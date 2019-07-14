@@ -37,7 +37,7 @@ $(window).load(function(){
     // 리뷰 로딩 체크
     var countCode = setInterval( function() {
         loadCount++;
-        if($("._review_wrap .li_board review_table .li_body").length>0 || loadCount>10){
+        if($("._review_wrap .li_board.review_table .li_body").length>0 || loadCount>10){
             clearInterval(countCode);
             countCode = "";
             loadCount=0;

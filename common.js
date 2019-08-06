@@ -109,6 +109,12 @@ $(window).load(function(){
             reviewImageChange();
         }
     });
+
+    $("#prod_detail_content_mobile").bind('DOMNodeInserted', function(e) {
+        if($(e.target).attr("class")=="li_board review_table"){
+            reviewImageChange();
+        }
+    });
     //19.08.06//////////////////////////////////////////////
 
     commentObj = makeComment();
@@ -171,6 +177,9 @@ $(window).load(function(){
         reviewObj.contents = $("#cocoaModal .modal-content .modal-body ._review_body").html();
 
         $(this).find(".list_text_title .body_tools").before("<div class='moncoReviewContents'>" + reviewObj.contents + "</div>");
+        //19.08.06//////////////////////////////////////////////
+        $(".moncoReviewContents img").attr("src", $("#prod_image_list ._item img").attr("src"));
+        //19.08.06//////////////////////////////////////////////
     });
 
     $(document).on("click", "._prod_detail_tab_fixed a", function(){
@@ -180,6 +189,7 @@ $(window).load(function(){
 
         if($(this).hasClass("_review")){
             $("._prod_detail_detail_lazy_load_mobile").addClass("reviewOn");
+            reviewImageChange();
         }else{
             $("._prod_detail_detail_lazy_load_mobile").removeClass("reviewOn");
         }
@@ -542,6 +552,7 @@ $(window).load(function(){
       $(".moncoStyle2 .imgArea img").each(function(){
           $(this).attr("data-src", $(this).attr("src"));
       });
+      imageTemp();
     }
 
     function order_init(){

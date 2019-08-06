@@ -106,7 +106,6 @@ $(window).load(function(){
     //19.08.06//////////////////////////////////////////////
     $("._review_wrap").bind('DOMNodeInserted', function(e) {
         if($(e.target).attr("class")=="li_board review_table"){
-            console.log();
             reviewImageChange();
         }
     });

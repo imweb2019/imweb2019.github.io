@@ -25,6 +25,7 @@ function getReviewDetail(obj){
     });
 }
 
+//19.08.06//////////////////////////////////////////////
 function imageTemp(){
     var bCount = 0;
     var brand = [
@@ -49,31 +50,68 @@ function imageTemp(){
         var obj = [
             $(".moncoStyle .contentsArea"),
             $(".moncoStyle2 li")
-        ]
+        ];
         imageChange(obj);
     }
-
-    // $(".li_board.review_table ul").each(function(){
-    //     console.log($(this).find("img"));
-    // });
 }
 
 function imageChange(obj){
+    var prodImg = $("#prod_image_list ._item img").attr("src");
     $.each(obj, function(index, item){
         item.each(function(){
             $(this).find("img").each(function(idx){
                 if(idx>0){
                     $(this).remove();
                 }else{
-                    $(this).attr("src", $("#prod_image_list ._item img").attr("src"));
-                    // console.log($("#prod_image_list ._item img").attr("src"));
+                    $(this).attr("src", prodImg);
                 }
             });
         });
     });
+
+    $(".li_board.review_table ul").each(function(){
+        $(this).find("li a.blocked").click(function(){
+            $("#cocoaModal ._review_body img").each(function(idx){
+                if(idx>0){
+                    $(this).remove();
+                }else{
+                    $(this).attr("src", prodImg);
+                }
+            });
+        });
+        $(this).find(".board_thumb").css({"background":"url("+prodImg+")"});
+    });
+
+    reviewImageChange();
 }
 
+function reviewImageChange(){
+    var prodImg = $("#prod_image_list ._item img").attr("src");
+    $(".li_board.review_table ul").each(function(){
+        $(this).find("li a.blocked").click(function(){
+            $("#cocoaModal ._review_body img").each(function(idx){
+                if(idx>0){
+                    $(this).remove();
+                }else{
+                    $(this).attr("src", prodImg);
+                }
+            });
+        });
+        $(this).find(".board_thumb").css({"background":"url("+prodImg+")"});
+    });
+}
+//19.08.06//////////////////////////////////////////////
+
 $(window).load(function(){
+    //19.08.06//////////////////////////////////////////////
+    $("._review_wrap").bind('DOMNodeInserted', function(e) {
+        if($(e.target).attr("class")=="li_board review_table"){
+            console.log();
+            reviewImageChange();
+        }
+    });
+    //19.08.06//////////////////////////////////////////////
+
     commentObj = makeComment();
 
     var loadCount=0;

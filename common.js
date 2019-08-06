@@ -25,6 +25,54 @@ function getReviewDetail(obj){
     });
 }
 
+function imageTemp(){
+    var bCount = 0;
+    var brand = [
+        "neum",
+        "fancyu",
+        "memorable",
+        "rainfield",
+        "ohsomyo",
+        "lobelia",
+        "madscent",
+        "ybloom"
+    ];
+
+    $.each(brand, function(index, item){
+        var host = window.location.hostname;
+        if(host.indexOf(item) !== -1){
+            bCount++;
+        }
+    });
+
+    if(bCount==0){
+        var obj = [
+            $(".moncoStyle .contentsArea"),
+            $(".moncoStyle2 li")
+        ]
+        imageChange(obj);
+    }
+
+    // $(".li_board.review_table ul").each(function(){
+    //     console.log($(this).find("img"));
+    // });
+}
+
+function imageChange(obj){
+    $.each(obj, function(index, item){
+        item.each(function(){
+            $(this).find("img").each(function(idx){
+                if(idx>0){
+                    $(this).remove();
+                }else{
+                    $(this).attr("src", $("#prod_image_list ._item img").attr("src"));
+                    // console.log($("#prod_image_list ._item img").attr("src"));
+                }
+            });
+        });
+    });
+}
+
 $(window).load(function(){
     commentObj = makeComment();
 
@@ -433,6 +481,7 @@ $(window).load(function(){
           productImg_m.attr("src", "http://222.239.251.70/image/" + getParam("s") + "/" + idx + ".png");
           productImg_m.attr("data-original", "http://222.239.251.70/image/" + getParam("s") + "/" + idx + ".png");
       }
+      imageTemp();
     }
 
     function mobileReview(){

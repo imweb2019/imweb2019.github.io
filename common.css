@@ -4,9 +4,15 @@
 table.moncoStyle{
     width:70%;
     margin:0 auto;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     table-layout: fixed;
+}
+
+.moncoStyleTitle{
+    width:70%;
+    margin:0 auto;
+    margin-top: 50px;
 }
 
 table.moncoStyle .title{
@@ -42,6 +48,7 @@ table.moncoStyle th{
     height:30px;
     text-align:center;
     border-bottom: 1px solid #ddd;
+    background: #e6e6e6;
 }
 
 table.moncoStyle td{
@@ -160,6 +167,7 @@ ul.moncoStyle2{
     padding:2px 0px;
     border-top:2px solid lightgrey;
     border-bottom:2px solid lightgrey;
+    margin-bottom: 30px;
 }
 
 ul.moncoStyle2 li{

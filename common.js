@@ -69,36 +69,36 @@ function imageChange(obj){
         });
     });
 
-    $(".li_board.review_table ul").each(function(){
-        $(this).find("li a.blocked").click(function(){
-            $("#cocoaModal ._review_body img").each(function(idx){
-                if(idx>0){
-                    $(this).remove();
-                }else{
-                    $(this).attr("src", prodImg);
-                }
-            });
-        });
-        $(this).find(".board_thumb").css({"background":"url("+prodImg+")"});
-    });
-
-    reviewImageChange();
+    // $(".li_board.review_table ul").each(function(){
+    //     $(this).find("li a.blocked").click(function(){
+    //         $("#cocoaModal ._review_body img").each(function(idx){
+    //             if(idx>0){
+    //                 $(this).remove();
+    //             }else{
+    //                 $(this).attr("src", prodImg);
+    //             }
+    //         });
+    //     });
+    //     $(this).find(".board_thumb").css({"background":"url("+prodImg+")"});
+    // });
+    //
+    // reviewImageChange();
 }
 
 function reviewImageChange(){
-    var prodImg = $("#prod_image_list ._item img").attr("src");
-    $(".li_board.review_table ul").each(function(){
-        $(this).find("li a.blocked").click(function(){
-            $("#cocoaModal ._review_body img").each(function(idx){
-                if(idx>0){
-                    $(this).remove();
-                }else{
-                    $(this).attr("src", prodImg);
-                }
-            });
-        });
-        $(this).find(".board_thumb").css({"background":"url("+prodImg+")"});
-    });
+    // var prodImg = $("#prod_image_list ._item img").attr("src");
+    // $(".li_board.review_table ul").each(function(){
+    //     $(this).find("li a.blocked").click(function(){
+    //         $("#cocoaModal ._review_body img").each(function(idx){
+    //             if(idx>0){
+    //                 $(this).remove();
+    //             }else{
+    //                 $(this).attr("src", prodImg);
+    //             }
+    //         });
+    //     });
+    //     $(this).find(".board_thumb").css({"background":"url("+prodImg+")"});
+    // });
 }
 //19.08.06//////////////////////////////////////////////
 
@@ -290,7 +290,7 @@ $(window).load(function(){
       var reviewHTML = "";
 
       if(commentObj.hasOwnProperty(idx)){
-          reviewHTML += '<div><table class="moncoStyle">';
+          reviewHTML += '<div><p class="moncoStyleTitle">Photo Review</p><table class="moncoStyle">';
           reviewHTML += '<col width="40px" />';
           reviewHTML += '<col width="*" />';
           reviewHTML += '<col width="90px" />';
@@ -346,7 +346,7 @@ $(window).load(function(){
           reviewHTML += '</tbody>';
           reviewHTML += '</table></div>';
       }else{
-          reviewHTML += '<div><table class="moncoStyle">';
+          reviewHTML += '<div><p class="moncoStyleTitle">Photo Review</p><table class="moncoStyle">';
           reviewHTML += '<col width="40px" />';
           reviewHTML += '<col width="*" />';
           reviewHTML += '<col width="90px" />';
@@ -385,7 +385,9 @@ $(window).load(function(){
       }
 
       if($(".review_table .li_body").length>0){
-          detail_area_pc.before(reviewHTML);
+          // detail_area_pc.before(reviewHTML);
+          $(".categorize.review-box").before(reviewHTML);
+
           $(".moncoStyle .npay_icon").remove();
         $(".moncoStyle .reply_cnt").remove();
             $(".moncoStyle").find(".reviewInput").each(function(){
@@ -403,6 +405,7 @@ $(window).load(function(){
 
       // 모바일
       if(commentObj.hasOwnProperty(idx)){
+          reviewHTML += '<p>Photo Review</p>';
           reviewHTML += '<div><ul class="moncoStyle2">';
 
           $.each(commentObj[idx], function (index, obj) {
@@ -479,7 +482,7 @@ $(window).load(function(){
 
       tempHTML = reviewHTML;
 
-      if($(".review_table .li_body").length>0 && $("._prod_detail_tab_fixed a.active").hasClass("_detail")){
+      if($(".review_table .li_body").length>0){
           mobileReview();
             $(".moncoStyle2").find(".reviewInput").each(function(){
               getReviewDetail($(this));
@@ -532,7 +535,8 @@ $(window).load(function(){
     }
 
     function mobileReview(){
-      $("._prod_detail_detail_lazy_load_mobile").before(tempHTML);
+      // $("._prod_detail_detail_lazy_load_mobile").before(tempHTML);
+      $(".m-btn-group.button_tab").before(tempHTML);
 
       $(".moncoStyle2 .contentsArea img").remove();
 

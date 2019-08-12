@@ -405,7 +405,7 @@ $(window).load(function(){
 
       // 모바일
       if(commentObj.hasOwnProperty(idx)){
-          reviewHTML += '<p>Photo Review</p>';
+          reviewHTML += '<p class="moncoStyleTitleMobile">Photo Review</p>';
           reviewHTML += '<div><ul class="moncoStyle2">';
 
           $.each(commentObj[idx], function (index, obj) {

@@ -60,6 +60,10 @@ function imageChange(obj){
     $.each(obj, function(index, item){
         item.each(function(){
             $(this).find("img").each(function(idx){
+                if($(this).attr("src") == "https://cdn.imweb.me/upload/S201904025ca2b4d86a1c7/5cecbd522b49c.png"){
+                    // console.log($(this));
+                    return;
+                }
                 if(idx>0){
                     $(this).remove();
                 }else{

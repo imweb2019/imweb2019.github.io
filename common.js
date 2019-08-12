@@ -60,10 +60,6 @@ function imageChange(obj){
     $.each(obj, function(index, item){
         item.each(function(){
             $(this).find("img").each(function(idx){
-                if($(this).attr("src") == "https://cdn.imweb.me/upload/S201904025ca2b4d86a1c7/5cecbd522b49c.png"){
-                    // console.log($(this));
-                    return;
-                }
                 if(idx>0){
                     $(this).remove();
                 }else{
@@ -535,7 +531,7 @@ $(window).load(function(){
           productImg_m.attr("src", "http://222.239.251.70/image/" + getParam("s") + "/" + idx + ".png");
           productImg_m.attr("data-original", "http://222.239.251.70/image/" + getParam("s") + "/" + idx + ".png");
       }
-      imageTemp();
+      //imageTemp();
     }
 
     function mobileReview(){
@@ -560,7 +556,7 @@ $(window).load(function(){
       $(".moncoStyle2 .imgArea img").each(function(){
           $(this).attr("data-src", $(this).attr("src"));
       });
-      imageTemp();
+      //imageTemp();
     }
 
     function order_init(){

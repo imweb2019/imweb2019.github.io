@@ -536,7 +536,7 @@ $(window).load(function(){
 
     function mobileReview(){
       // $("._prod_detail_detail_lazy_load_mobile").before(tempHTML);
-      $(".m-btn-group.button_tab").before(tempHTML);
+      $("#tab_offset.m-btn-group").before(tempHTML);
 
       $(".moncoStyle2 .contentsArea img").remove();
 

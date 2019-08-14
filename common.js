@@ -178,7 +178,7 @@ $(window).load(function(){
 
         $(this).find(".list_text_title .body_tools").before("<div class='moncoReviewContents'>" + reviewObj.contents + "</div>");
         //19.08.06//////////////////////////////////////////////
-        $(".moncoReviewContents img").attr("src", $("#prod_image_list ._item img").attr("src"));
+        //$(".moncoReviewContents img").attr("src", $("#prod_image_list ._item img").attr("src"));
         //19.08.06//////////////////////////////////////////////
     });
 

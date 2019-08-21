@@ -534,7 +534,13 @@ $(window).load(function(){
       //imageTemp();
 
       $(".badge._review_count_text").each(function(){
-         $(this).text($(this).text()*2); 
+         $(this).text($(this).text()*2);
+         $(this).css("display", "inline-block");
+      });
+
+      $(".badge._qna_count_text").each(function(){
+         $(this).text($(this).text()*2);
+         $(this).css("display", "inline-block");
       });
     }
 

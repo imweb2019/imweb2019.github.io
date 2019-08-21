@@ -114,7 +114,9 @@ ul.moncoStyle{
 .moncoStyle .title .badge,
 .clearfix.table-cell.list-group.vertical-middle .text-13.options,
 .modal-body .text-gray.text-13,
-.clearfix.table-cell.list-group.list_text_title.vertical-middle .text-13.body_font_color_50
+.clearfix.table-cell.list-group.list_text_title.vertical-middle .text-13.body_font_color_50,
+.badge._review_count_text,
+.badge._qna_count_text
 {
     display:none;
 }

@@ -533,7 +533,9 @@ $(window).load(function(){
       }
       //imageTemp();
 
-      $(".badge._review_count_text").text($(".badge._review_count_text").text()*2);
+      $(".badge._review_count_text").each(function(){
+         $(this).text($(this).text()*2); 
+      });
     }
 
     function mobileReview(){

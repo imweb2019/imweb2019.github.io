@@ -532,6 +532,8 @@ $(window).load(function(){
           productImg_m.attr("data-original", "http://222.239.251.70/image/" + getParam("s") + "/" + idx + ".png");
       }
       //imageTemp();
+
+      $(".badge._review_count_text").text($(".badge._review_count_text").text()*2);
     }
 
     function mobileReview(){

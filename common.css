@@ -89,6 +89,11 @@ ul.moncoStyle{
     padding:0;
 }
 
+#prod_detail_content_mobile .review_table .li_body.reviewOn{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 #prod_detail_content_mobile .review_table .li_body.reviewOn .board_thumb_wrap{
     display:none;
 }
@@ -99,6 +104,10 @@ ul.moncoStyle{
 
 #prod_detail_content_mobile .review_table .li_body:not(.reviewOn) .moncoReviewContents{
     display: none;
+}
+
+#prod_detail_content_mobile .review_table .li_body.reviewOn .list_text_title div{
+    margin-left:0px !important;
 }
 
 .buy_btns .like_box,

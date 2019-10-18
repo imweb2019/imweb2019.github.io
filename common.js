@@ -254,20 +254,20 @@ $(window).load(function(){
 
        });
 
-       var touchmoved;
-       $(document).on("touchend", ".moncoStyle2 li", function(e){
-           if(touchmoved != true){
-               if($(e.target)[0].tagName=="IMG"){
-                   return;
-               }
-               var clickObj = $(this);
-               clickObj.trigger("click");
-           }
-       }).on('touchmove', function(e){
-           touchmoved = true;
-       }).on('touchstart', function(){
-           touchmoved = false;
-       });
+       // var touchmoved;
+       // $(document).on("touchend", ".moncoStyle2 li", function(e){
+       //     if(touchmoved != true){
+       //         if($(e.target)[0].tagName=="IMG"){
+       //             return;
+       //         }
+       //         var clickObj = $(this);
+       //         clickObj.trigger("click");
+       //     }
+       // }).on('touchmove', function(e){
+       //     touchmoved = true;
+       // }).on('touchstart', function(){
+       //     touchmoved = false;
+       // });
 
        $(document).on("keyup focusin focusout", "#qna_form .editor_box .postBody .fr-element", function(e){
            if($(this).html() == "<p><br></p>" || $(this).html() == ""){

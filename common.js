@@ -175,8 +175,7 @@ $(window).load(function(){
         $(this).addClass("reviewOn");
         $("#review_detail_close").trigger("click");
         reviewObj.contents = $("#cocoaModal .modal-content .modal-body ._review_body").html();
-
-        $(this).find(".clearfix.table-cell.list-group.list_text_title.vertical-middle > .text-13.body_font_color_50:not(.no-margin)").before("<div class='moncoReviewContents'>" + reviewObj.contents + "</div>");
+        $(this).find(".clearfix.table-cell.list-group.list_text_title.vertical-middle > .body_tools").before("<div class='moncoReviewContents'>" + reviewObj.contents + "</div>");
         //19.08.06//////////////////////////////////////////////
         //$(".moncoReviewContents img").attr("src", $("#prod_image_list ._item img").attr("src"));
         //19.08.06//////////////////////////////////////////////

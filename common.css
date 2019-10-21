@@ -202,6 +202,7 @@ ul.moncoStyle2 li{
     position:relative;
     padding-top:5px;
     padding-bottom:5px;
+    cursor:pointer;
 }
 
 ul.moncoStyle2 li.active{

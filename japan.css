@@ -1,0 +1,123 @@
+#order_find_address .add_container._add_list{
+    font-size: 0.9em;
+}
+
+#order_find_address .add_container._add_list ul#tab{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom:1px solid #ddd;
+}
+
+#order_find_address .add_container._add_list ul#tab li{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    padding:10px;
+    cursor:pointer;
+    border-left:1px solid #ddd;
+    color: #8a8a8a;
+}
+
+#order_find_address .add_container._add_list ul#tab li.on{
+    background-color:#eee;
+    color:black;
+}
+
+#order_find_address .add_container._add_list .tab_con {
+    clear:both;
+    margin-top:5px;
+    padding: 5px;
+}
+
+#order_find_address .add_container._add_list .tab_con > div {
+    display:none;
+    background:#fff;
+    font-weight: 200;
+}
+
+#order_find_address .add_container._add_list .tab_con div #search_zipcode {
+    border: 1px solid #ddd;
+    padding: 0;
+    width: 85%;
+    padding: 0px 5px;
+    font-size: 1em;
+    height: 30px;
+}
+
+#order_find_address .add_container._add_list .tab_con div #search_zipcode_btn{
+    float: right;
+    height: 30px;
+    width: 13%;
+    padding: 0px;
+    line-height: 30px;
+    text-align: center;
+}
+
+#order_find_address .add_container._add_list .tab_con div .zipcodeList{
+    border : 1px solid #ddd;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    height:450px;
+    clear: both;
+}
+
+#order_find_address .add_container._add_list .tab_con div .zipcodeList > span{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+#order_find_address .add_container._add_list .tab_con div .zipcodeList ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    height: 100%;
+}
+
+#order_find_address .add_container._add_list .tab_con div .zipcodeList ul li{
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#order_find_address .add_container._add_list .tab_con div .zipcodeList ul li:hover{
+    background-color: #E3E7F0;
+}
+
+#order_find_address .add_container._add_list .tab_con div .zipcodeList ul span{
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: middle;
+}
+
+#order_find_address .add_container._add_list .tab_con div .zipcodeList ul li >span:nth-child(2){
+    width:75%;
+}
+
+#order_find_address .add_container._add_list .tab_con div .form-select-wrap{
+    width: 48%;
+    margin-bottom: 8px;
+}
+
+#order_find_address .add_container._add_list .tab_con div .form-select-wrap:nth-child(1){
+    float:left;
+}
+
+#order_find_address .add_container._add_list .tab_con div .form-select-wrap:nth-child(2){
+    float:right;
+}
+
+#order_find_address .add_container._add_list .tab_con div .form-select-wrap select{
+    height: 30px;
+    border: 1px solid #ddd;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#order_find_address .add_container._add_list .tab_con > div:nth-child(1) {
+}
+
+#order_find_address .add_container._add_list .tab_con > div:nth-child(2) {
+}

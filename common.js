@@ -154,10 +154,13 @@ $(window).load(function(){
     }
 
     $('#order_payment').submit(function() {
-        dataLayer.push({
-            'event' : 'pgLoading',
-            'productName' : $(".shop_item_thumb .product_info_wrap > span").text(),
-        });
+        if(typeof dataLayer == "undefined" || dataLayer == null || dataLayer == ""){
+        }else{
+            dataLayer.push({
+                'event' : 'pgLoading',
+                'productName' : $(".shop_item_thumb .product_info_wrap > span").text(),
+            });
+        }
     });
 
     $(document).on("click", ".pagination li a", function(){

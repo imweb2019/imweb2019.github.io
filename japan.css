@@ -121,3 +121,16 @@
 
 #order_find_address .add_container._add_list .tab_con > div:nth-child(2) {
 }
+
+#cocoaModal .law_Area{
+    font-size: 0.8em;
+}
+
+#cocoaModal .law_Area ul.li_body li{
+    word-break: break-all;
+    text-align: left;
+}
+
+#cocoaModal .law_Area ul.li_body li:nth-child(1){
+    min-width: 140px;
+}

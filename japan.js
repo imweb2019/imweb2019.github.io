@@ -1,5 +1,6 @@
 $(window).load(function(){
     jpFooterInit();
+    jpFooterInit2();
     jpOrderInit();
 
     $(document).on("click", ".jp_address_api", function(){
@@ -47,6 +48,25 @@ $(window).load(function(){
 });
 
 function jpFooterInit(){
+    var loadCount=0;
+
+    var countCode = setInterval( function() {
+        loadCount++;
+        if($(".section_wrap .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").length>0){
+            $(".section_wrap .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").last().after('<div class="inline-blocked"><a href="#" onclick="openLaw(); return false;">特定商取り引きに関する法律に基づく表記</li>');
+
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }else if(loadCount>20){
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }
+    },200);
+}
+
+function jpFooterInit2(){
     var loadCount=0;
 
     var countCode = setInterval( function() {

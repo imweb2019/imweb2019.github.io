@@ -90,16 +90,9 @@ function jpOrderInit(){
 
     var countCode = setInterval( function() {
         loadCount++;
-        if($("#order_payment input[name='deliv_address_zipcode']").length>0){
-            $("#order_payment input[name='deliv_address_zipcode']").attr("readonly", "readonly").addClass("jp_address_api");
-            $("#order_payment input[name='deliv_address_state']").attr("readonly", "readonly").addClass("jp_address_api");
-            $("#order_payment input[name='deliv_address_city']").attr("readonly", "readonly").addClass("jp_address_api");
-            $("#order_payment input[name='deliv_address_street']").attr("readonly", "readonly").addClass("jp_address_api");
-
-
-            $("#order_payment input[name='deliv_address_street']").parent("div").before($("#order_payment input[name='deliv_address_zipcode']").parent("div"));
-            $("#order_payment input[name='deliv_address_zipcode']").parent("div").after($("#order_payment input[name='deliv_address_state']").parent("div"));
-            $("#order_payment input[name='deliv_address_state']").parent("div").after($("#order_payment input[name='deliv_address_city']").parent("div"));
+        if($("#order_payment input[name='deliv_postcode']").length>0){
+            $("#order_payment input[name='deliv_postcode']").attr("readonly", "readonly").addClass("jp_address_api");
+            $("#order_payment input[name='deliv_address']").attr("readonly", "readonly").addClass("jp_address_api");
 
             var sido = getSidoList();
 
@@ -274,7 +267,7 @@ function getZipcodeList(obj){
     if(api.result){
         listHTML += '<ul>';
         $.each(api.data, function(index, item){
-            listHTML += '<li data-deliv_address_zipcode="'+item.zipcode+'" data-deliv_address_state="'+item.sido_name+'" data-deliv_address_city="'+item.gugun_name+'" data-deliv_address_street="'+item.dong_name+'">';
+            listHTML += '<li data-deliv_postcode="'+item.zipcode+'" data-deliv_address="'+(item.sido_name + ' ' + item.gugun_name + ' ' + item.dong_name)+'">';
             listHTML += '<span>'+item.zipcode+'</span>';
             listHTML += '<span>'+item.sido_name+' '+item.gugun_name+' '+item.dong_name+'</span>';
             listHTML += '</li>';
@@ -293,7 +286,7 @@ function getZipCodeList2(obj, sido, gugun){
     if(api.result){
         listHTML += '<ul>';
         $.each(api.data, function(index, item){
-            listHTML += '<li data-deliv_address_zipcode="'+item.zipcode+'" data-deliv_address_state="'+item.sido_name+'" data-deliv_address_city="'+item.gugun_name+'" data-deliv_address_street="'+item.dong_name+'">';
+            listHTML += '<li data-deliv_postcode="'+item.zipcode+'" data-deliv_address="'+(item.sido_name + ' ' + item.gugun_name + ' ' + item.dong_name)+'">';
             listHTML += '<span>'+item.zipcode+'</span>';
             listHTML += '<span>'+item.sido_name+' '+item.gugun_name+' '+item.dong_name+'</span>';
             listHTML += '</li>';

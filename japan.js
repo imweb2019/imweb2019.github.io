@@ -52,8 +52,9 @@ function jpFooterInit(){
 
     var countCode = setInterval( function() {
         loadCount++;
-        if($(".section_wrap .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").length>0){
-            $(".section_wrap .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").last().after('<div class="inline-blocked"><a href="#" onclick="openLaw(); return false;">特定商取り引きに関する法律に基づく表記</li>');
+        if($(".section_wrap.pc_section .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").length>0 && $(".section_wrap.mobile_section .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").length>0){
+            $(".section_wrap.pc_section .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").last().after('<div class="inline-blocked"><a href="#" onclick="openLaw(); return false;">特定商取り引きに関する法律に基づく表記</li>');
+            $(".section_wrap.mobile_section .visual_section._fullpage.fullpage_on .visaul_footer .inline-blocked").last().after('<div class="inline-blocked"><a href="#" onclick="openLaw(); return false;">特定商取り引きに関する法律に基づく表記</li>');
 
             clearInterval(countCode);
             countCode = "";

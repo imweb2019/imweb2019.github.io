@@ -143,7 +143,9 @@ $(window).load(function(){
             clearInterval(countCode2);
             countCode2 = "";
             loadCount2=0;
-            cs_init();
+            if(window.location.hostname!="015am.net"){
+                cs_init();
+            }
         }
     },200);
 

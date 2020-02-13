@@ -300,7 +300,11 @@ $(window).load(function(){
           reviewHTML += '<col width="90px" />';
           reviewHTML += '<col width="103px" />';
           reviewHTML += '<thead>';
-          reviewHTML += '<tr><th>사진</th><th>제목</th><th>작성자</th><th>평점</th></tr>';
+          if(window.location.hostname!="015am.net"){
+              reviewHTML += '<tr><th>사진</th><th>제목</th><th>작성자</th><th>평점</th></tr>';
+          }else{
+              reviewHTML += '<tr><th>画像</th><th>題目</th><th>ID</th><th>評点</th></tr>';
+          }
           reviewHTML += '</thead>';
           reviewHTML += '<tbody>';
 
@@ -356,7 +360,11 @@ $(window).load(function(){
           reviewHTML += '<col width="90px" />';
           reviewHTML += '<col width="103px" />';
           reviewHTML += '<thead>';
-          reviewHTML += '<tr><th>사진</th><th>제목</th><th>작성자</th><th>평점</th></tr>';
+          if(window.location.hostname!="015am.net"){
+              reviewHTML += '<tr><th>사진</th><th>제목</th><th>작성자</th><th>평점</th></tr>';
+          }else{
+              reviewHTML += '<tr><th>画像</th><th>題目</th><th>ID</th><th>評点</th></tr>';
+          }
           reviewHTML += '</thead>';
           reviewHTML += '<tbody>';
 

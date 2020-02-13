@@ -440,7 +440,7 @@ $(window).load(function(){
 
               reviewHTML += '</div>';
               reviewHTML += '<div class="infoArea">';
-              reviewHTML += '평점';
+              reviewHTML += (window.location.hostname!="015am.net" ? '평점' : '評点');
               reviewHTML += '<div class="star_point">';
               for(var i=0; i<5; i++){
                   if(obj.score>i){
@@ -482,7 +482,7 @@ $(window).load(function(){
               reviewHTML += '<div class="contentsArea reviewInput" data-no=' + review_idx + '>';
               reviewHTML += '</div>';
               reviewHTML += '<div class="infoArea">';
-              reviewHTML += '평점';
+              reviewHTML += (window.location.hostname!="015am.net" ? '평점' : '評点');
               reviewHTML += '<div class="star_point">' + $(this).find(".read .interlock_star_point").html() + '</div>';
               reviewHTML += '<span class="writer">' + $(this).find(".name").text() + '</span>';
               reviewHTML += '</div>';

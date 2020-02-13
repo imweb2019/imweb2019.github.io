@@ -134,3 +134,8 @@
 #cocoaModal .law_Area ul.li_body li:nth-child(1){
     min-width: 140px;
 }
+
+#prod_goods_form .buy_btns #orderBtn,
+#shop_cart_list .bottom-btn #orderBtn{
+    display:none;
+}

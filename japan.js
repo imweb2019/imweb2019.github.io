@@ -1,6 +1,8 @@
 $(window).load(function(){
     jpFooterInit();
     jpFooterInit2();
+    jpProductDetailInit();
+    jpCartInit();
     jpOrderInit();
 
     $(document).on("click", ".jp_address_api", function(){
@@ -45,6 +47,23 @@ $(window).load(function(){
         });
         $("#order_find_address").hide();
     });
+
+    $(document).on("click", "#shop_cart_list .bottom-btn #orderCheckBtn", function(e){
+        if($("#cart_main_total_price").text().replace(/[^0-9]/g,"") > 16666){
+            alert("最大の注文が可能金額は16,666円です。");
+        }else{
+            $("#shop_cart_list .bottom-btn #orderBtn").click();
+        }
+    });
+
+    $(document).on("click", "#prod_goods_form .buy_btns #orderCheckBtn", function(e){
+        if($("#prod_selected_options .total_price").text().replace(/[^0-9]/g,"") > 16666){
+            alert("最大の注文が可能金額は16,666円です。");
+        }else{
+            $("#prod_goods_form .buy_btns #orderBtn").click();
+        }
+    });
+
 });
 
 function jpFooterInit(){
@@ -74,6 +93,54 @@ function jpFooterInit2(){
         loadCount++;
         if($("footer#doz_footer_wrap ._policy_menu.policy_menu li._use_policy_menu").length>0){
             $("footer#doz_footer_wrap ._policy_menu.policy_menu li._use_policy_menu").last().after('<li class="_use_policy_menu"><a href="#" onclick="openLaw(); return false;">特定商取り引きに関する法律に基づく表記</li>');
+
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }else if(loadCount>20){
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }
+    },200);
+}
+
+function jpProductDetailInit(){
+    var loadCount=0;
+
+    var countCode = setInterval( function() {
+        loadCount++;
+        if($("#prod_goods_form .buy_btns ._btn_buy.btn.buy.opt").length>0){
+            var obj = $("#prod_goods_form .buy_btns ._btn_buy.btn.buy.opt");
+            var copy = obj.clone();
+            obj.attr("id", "orderBtn");
+            copy.attr("id", "orderCheckBtn");
+            copy.removeAttr("onclick");
+            obj.after(copy);
+
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }else if(loadCount>20){
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }
+    },200);
+}
+
+function jpCartInit(){
+    var loadCount=0;
+
+    var countCode = setInterval( function() {
+        loadCount++;
+        if($("#shop_cart_list .bottom-btn .btn.to-order").length>0){
+            var obj = $("#shop_cart_list .bottom-btn .btn.to-order");
+            var copy = obj.clone();
+            obj.attr("id", "orderBtn");
+            copy.attr("id", "orderCheckBtn");
+            copy.removeAttr("onclick");
+            obj.after(copy);
 
             clearInterval(countCode);
             countCode = "";

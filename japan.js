@@ -4,6 +4,15 @@ $(window).load(function(){
     jpProductDetailInit();
     jpCartInit();
     jpOrderInit();
+    jpOrderTrackInit();
+
+    $("#site_alarm_slidemenu #site_alarm_tab").bind('DOMNodeInserted', function(e) {
+        if($(e.target).hasClass("tile")){
+            $(e.target).find(".bodytext").text($(e.target).find(".bodytext").text().replace(/기타택배/gi, "SAGAWA"));
+            $(e.target).find(".tile-text").text($(e.target).find(".tile-text").text().replace(/주문취소가 완료 되었습니다/gi, "ご注文のキャンセルを完了しました。"));
+            $(e.target).find(".tile-text").text($(e.target).find(".tile-text").text().replace(/주문번호/gi, "注文番号"));
+        }
+    });
 
     $(document).on("click", ".jp_address_api", function(){
         $("#order_find_address").show();
@@ -49,18 +58,38 @@ $(window).load(function(){
     });
 
     $(document).on("click", "#shop_cart_list .bottom-btn #orderCheckBtn", function(e){
-        if($("#cart_main_total_price").text().replace(/[^0-9]/g,"") > 16666){
-            alert("最大の注文が可能金額は16,666円です。");
+        if($("#cart_main_total_price").text().replace(/[^0-9]/g,"") > 16665){
+            alert("16,666円以上注文不可");
         }else{
             $("#shop_cart_list .bottom-btn #orderBtn").click();
         }
     });
 
-    $(document).on("click", "#prod_goods_form .buy_btns #orderCheckBtn", function(e){
-        if($("#prod_selected_options .total_price").text().replace(/[^0-9]/g,"") > 16666){
-            alert("最大の注文が可能金額は16,666円です。");
+    $(document).on("click", "#prod_goods_form .buy_btns #orderCheckBtnPC", function(e){
+        if($("#prod_selected_options .total_price").text().replace(/[^0-9]/g,"") > 16665){
+            alert("16,666円以上注文不可");
         }else{
-            $("#prod_goods_form .buy_btns #orderBtn").click();
+            $("#prod_goods_form .buy_btns #orderBtnPC").click();
+        }
+    });
+
+    $(document).on("click", "#prod_goods_form .buy_btns #orderCheckBtnMobile", function(e){
+        if($("#prod_selected_options .total_price").text().replace(/[^0-9]/g,"") > 16665){
+            alert("16,666円以上注文不可");
+        }else{
+            $("#prod_goods_form .buy_btns #orderBtnMobile").click();
+        }
+    });
+
+    $(document).on("click touchend", ".productInfoBtn", function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        if($(this).hasClass("viewOn")){
+            $(this).removeClass("viewOn");
+            $(".productInfo").removeClass("viewOn");
+        }else{
+            $(this).addClass("viewOn");
+            $(".productInfo").addClass("viewOn");
         }
     });
 
@@ -110,13 +139,26 @@ function jpProductDetailInit(){
 
     var countCode = setInterval( function() {
         loadCount++;
-        if($("#prod_goods_form .buy_btns ._btn_buy.btn.buy.opt").length>0){
-            var obj = $("#prod_goods_form .buy_btns ._btn_buy.btn.buy.opt");
+        if($("#prod_goods_form .buy_btns.pc ._btn_buy.btn.buy").length>0 && $("#prod_goods_form .buy_btns.mobile ._btn_buy.btn.buy.opt").length>0){
+            var obj = $("#prod_goods_form .buy_btns.pc ._btn_buy.btn.buy");
             var copy = obj.clone();
-            obj.attr("id", "orderBtn");
-            copy.attr("id", "orderCheckBtn");
+            obj.attr("id", "orderBtnPC");
+            copy.attr("id", "orderCheckBtnPC");
             copy.removeAttr("onclick");
-            obj.after(copy);
+            copy.removeClass("buy");
+            copy.removeClass("_btn_buy");
+            obj.before(copy);
+
+            var obj = $("#prod_goods_form .buy_btns.mobile ._btn_buy.btn.buy.opt");
+            var copy = obj.clone();
+            obj.attr("id", "orderBtnMobile");
+            copy.attr("id", "orderCheckBtnMobile");
+            copy.removeAttr("onclick");
+            copy.removeClass("buy");
+            copy.removeClass("_btn_buy");
+            obj.before(copy);
+
+            $("#prod_options").after("<div style='font-weight:bold;color:#FF6666;margin-top: -20px;margin-bottom:20px; padding: 0 15px;font-size: 0.9em;'>注文殺到!&nbsp;&nbsp;&nbsp;8,000円以上のご注文で 基本 配送料無料!</div>");
 
             clearInterval(countCode);
             countCode = "";
@@ -205,6 +247,27 @@ function jpOrderInit(){
 
             moncoTabInit("#order_find_address .add_container._add_list ul#tab", "#order_find_address .add_container._add_list div#tab_con", 0);
 
+            $("#order_payment .order_wrap").append($('<div class="tip-off"></div>').html($("#order_payment .order_detail .alert.alert-info")));
+
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }else if(loadCount>20){
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }
+    },200);
+}
+
+function jpOrderTrackInit(){
+    var loadCount=0;
+
+    var countCode = setInterval( function() {
+        loadCount++;
+        if($(".btn-order-track").length>0){
+            var url = "https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo="+$(".btn-order-track").attr("onclick").replace(/[^0-9]/g,"");
+            $(".btn-order-track").attr("onclick", "window.open('"+url+"', '_blank');");
             clearInterval(countCode);
             countCode = "";
             loadCount=0;

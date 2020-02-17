@@ -122,6 +122,11 @@
 #order_find_address .add_container._add_list .tab_con > div:nth-child(2) {
 }
 
+#order_payment .alert.alert-info{
+    background-color: transparent;
+    margin-bottom: 0px;
+}
+
 #cocoaModal .law_Area{
     font-size: 0.8em;
 }
@@ -135,7 +140,47 @@
     min-width: 140px;
 }
 
-#prod_goods_form .buy_btns #orderBtn,
+#prod_goods_form .buy_btns #orderBtnPC,
+#prod_goods_form .buy_btns #orderBtnMobile,
 #shop_cart_list .bottom-btn #orderBtn{
     display:none;
+}
+
+div.productInfo{
+    display: none;
+}
+
+div.productInfo.viewOn{
+    display: block;
+}
+
+div.productInfoBtn{
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.5em;
+    color: #bdc3c7;
+    margin-top: 20px;
+}
+
+div.productInfoBtn::before{
+    content: "もっと見る▽";
+}
+
+div.productInfoBtn.viewOn::before{
+    content: "閉じる△";
+}
+
+.visaul_footer{
+    font-size: 0.1rem;
+    font-weight: 100;
+    font-family: none;
+}
+
+.visaul_footer > div,
+.visaul_footer > div > a{
+    color: #ffd218 !important;
+}
+
+footer img{
+    opacity: 0.3;
 }

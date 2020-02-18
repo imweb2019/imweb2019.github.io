@@ -5,6 +5,7 @@ $(window).load(function(){
     jpCartInit();
     jpOrderInit();
     jpOrderTrackInit();
+    jpOrderTrackInit2();
 
     $("#site_alarm_slidemenu #site_alarm_tab").bind('DOMNodeInserted', function(e) {
         if($(e.target).hasClass("tile")){
@@ -268,6 +269,26 @@ function jpOrderTrackInit(){
         if($(".btn-order-track").length>0){
             var url = "https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo="+$(".btn-order-track").attr("onclick").replace(/[^0-9]/g,"");
             $(".btn-order-track").attr("onclick", "window.open('"+url+"', '_blank');");
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }else if(loadCount>20){
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+        }
+    },200);
+}
+
+function jpOrderTrackInit2(){
+    var loadCount=0;
+
+    var countCode = setInterval( function() {
+        loadCount++;
+        if($(".btn-order-track > a").length>0){
+            var url = "https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo="+$(".btn-order-track > a").attr("href").replace(/[^0-9]/g,"");
+            $(".btn-order-track > a").attr("href", url);
+            $(".btn-order-track > a").attr("target", "_blank");
             clearInterval(countCode);
             countCode = "";
             loadCount=0;

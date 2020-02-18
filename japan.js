@@ -5,13 +5,28 @@ $(window).load(function(){
     jpCartInit();
     jpOrderInit();
     jpOrderTrackInit();
-    jpOrderTrackInit2();
 
     $("#site_alarm_slidemenu #site_alarm_tab").bind('DOMNodeInserted', function(e) {
         if($(e.target).hasClass("tile")){
-            $(e.target).find(".bodytext").text($(e.target).find(".bodytext").text().replace(/기타택배/gi, "SAGAWA"));
-            $(e.target).find(".tile-text").text($(e.target).find(".tile-text").text().replace(/주문취소가 완료 되었습니다/gi, "ご注文のキャンセルを完了しました。"));
-            $(e.target).find(".tile-text").text($(e.target).find(".tile-text").text().replace(/주문번호/gi, "注文番号"));
+            if($(e.target).find(".bodytext").length>0){
+                $(e.target).find(".bodytext").text($(e.target).find(".bodytext").text().replace(/기타택배/gi, "SAGAWA"));
+            }
+
+            if($(e.target).find(".tile-text").length>0){
+                $(e.target).find(".tile-text").text($(e.target).find(".tile-text").text().replace(/주문취소가 완료 되었습니다/gi, "ご注文のキャンセルを完了しました。"));
+                $(e.target).find(".tile-text").text($(e.target).find(".tile-text").text().replace(/주문번호/gi, "注文番号"));
+            }
+        }
+    });
+
+    $(".shop_mypage #cocoaModal .modal-content").bind('DOMNodeInserted', function(e) {
+        if($(e.target).hasClass("layer_pop")){
+            var linkObj = $(e.target).find("div.btn-order-track > a");
+            if(linkObj.length > 0){
+                var url = "https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo="+linkObj.attr("href").replace(/[^0-9]/g,"");
+                linkObj.attr("href", url);
+                linkObj.attr("target", "_blank");
+            }
         }
     });
 
@@ -269,26 +284,6 @@ function jpOrderTrackInit(){
         if($(".btn-order-track").length>0){
             var url = "https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo="+$(".btn-order-track").attr("onclick").replace(/[^0-9]/g,"");
             $(".btn-order-track").attr("onclick", "window.open('"+url+"', '_blank');");
-            clearInterval(countCode);
-            countCode = "";
-            loadCount=0;
-        }else if(loadCount>20){
-            clearInterval(countCode);
-            countCode = "";
-            loadCount=0;
-        }
-    },200);
-}
-
-function jpOrderTrackInit2(){
-    var loadCount=0;
-
-    var countCode = setInterval( function() {
-        loadCount++;
-        if($(".btn-order-track > a").length>0){
-            var url = "https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo="+$(".btn-order-track > a").attr("href").replace(/[^0-9]/g,"");
-            $(".btn-order-track > a").attr("href", url);
-            $(".btn-order-track > a").attr("target", "_blank");
             clearInterval(countCode);
             countCode = "";
             loadCount=0;

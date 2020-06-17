@@ -125,9 +125,11 @@ ul.moncoStyle{
 .modal-body .text-gray.text-13,
 .clearfix.table-cell.list-group.list_text_title.vertical-middle .text-13.body_font_color_50,
 .badge._review_count_text,
-.badge._qna_count_text
+.badge._qna_count_text,
+ul.list_review_wrap div.tabled .table-cell .text-13:not(.use_summary),
+ul.list_review_wrap div.tabled [class^='review_comment_wrap']
 {
-    display:none;
+    display:none !important;
 }
 
 .review_table{

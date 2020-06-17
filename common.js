@@ -547,12 +547,12 @@ $(window).load(function(){
 
       $(".badge._review_count_text").each(function(){
          $(this).text($(this).text()*2);
-         $(this).css("display", "inline-block !important");
+         $(this).attr('style','display:inline-block !important');
       });
 
       $(".badge._qna_count_text").each(function(){
          $(this).text($(this).text()*2);
-         $(this).css("display", "inline-block !important");
+         $(this).attr('style','display:inline-block !important');
       });
     }
 

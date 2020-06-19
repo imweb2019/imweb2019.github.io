@@ -128,8 +128,10 @@ ul.moncoStyle{
 .badge._qna_count_text,
 ul.list_review_wrap div.tabled .table-cell .text-13:not(.use_summary),
 ul.list_review_wrap div.tabled [class^='review_comment_wrap'],
-.list_review_inner .use_summary + div,
-.list_review_inner .use_summary + div + div
+.list_review_inner .use_summary + div.text-13 + div.text-14,
+.list_review_inner .use_summary + div.text-14,
+._review_wrap .interlock_star_point + div.text-13 + div.text-14,
+._review_wrap .interlock_star_point + div.text-14
 {
     display:none !important;
 }

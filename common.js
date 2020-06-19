@@ -117,6 +117,44 @@ $(window).load(function(){
     });
     //19.08.06//////////////////////////////////////////////
 
+    var pagingClick = false;
+
+  $(document).on("click", ".paging-block ul.pagination li a", function(e){
+	pagingClick = true;
+  });
+
+  // PC 리뷰
+  $("._review_wrap").bind('DOMNodeInserted', function(e) {
+	if($(e.target).attr("class")=="paging-block" && pagingClick){
+	  SITE_SHOP_DETAIL.scrollPCTab('review');
+	  pagingClick = false;
+	};
+  });
+
+  // PC QNA
+  $("._qna_wrap").bind('DOMNodeInserted', function(e) {
+	if($(e.target).attr("class")=="paging-block" && pagingClick){
+	  SITE_SHOP_DETAIL.scrollPCTab('qna');
+	  pagingClick = false;
+	};
+  });
+
+  // 모바일 리뷰&QNA
+  $("#prod_goods_form #tab_offset #prod_detail_content_mobile").bind('DOMNodeInserted', function(e) {
+	//SITE_SHOP_DETAIL.scrollPCTab('review');
+	if($(e.target).attr("class")=="paging-block"){
+	  if($("#prod_detail_content_tab_mobile ._review.active").length > 0){
+		var offset = $(".product_body").offset();
+        $('html, body').animate({scrollTop : offset.top}, 400);
+	  }
+
+	  if($("#prod_detail_content_tab_mobile ._qna.active").length > 0){
+		var offset = $(".product_body").offset();
+        $('html, body').animate({scrollTop : offset.top}, 400);
+	  }
+	};
+  });
+
     commentObj = makeComment();
 
     var loadCount=0;

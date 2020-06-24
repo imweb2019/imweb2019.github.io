@@ -128,7 +128,6 @@ $(document).ready(function(){
 	if($(e.target).attr("class")=="paging-block" && pagingClick){
 	  SITE_SHOP_DETAIL.scrollPCTab('review');
 	  pagingClick = false;
-      makeNpayLogo();
 	};
   });
 
@@ -589,16 +588,6 @@ $(document).ready(function(){
          $(this).text($(this).text()*2);
          $(this).attr('style','display:inline-block !important');
       });
-
-      //네이버페이 로고
-      makeNpayLogo();
-    }
-
-    function makeNpayLogo(){
-        $("._review_wrap .list_review_wrap .list_review_inner").each(function(index){
-            var npayLogo = $(this).find(".review_npay");
-            console.log(npayLogo.length);
-        });
     }
 
     function mobileReview(){

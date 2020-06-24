@@ -101,8 +101,8 @@ function reviewImageChange(){
     // });
 }
 //19.08.06//////////////////////////////////////////////
-
-$(window).load(function(){
+$(document).ready(function(){
+// $(window).load(function(){
     //19.08.06//////////////////////////////////////////////
     $("._review_wrap").bind('DOMNodeInserted', function(e) {
         if($(e.target).attr("class")=="li_board review_table"){
@@ -128,6 +128,7 @@ $(window).load(function(){
 	if($(e.target).attr("class")=="paging-block" && pagingClick){
 	  SITE_SHOP_DETAIL.scrollPCTab('review');
 	  pagingClick = false;
+      makeNpayLogo();
 	};
   });
 
@@ -406,26 +407,26 @@ $(window).load(function(){
           reviewHTML += '</thead>';
           reviewHTML += '<tbody>';
 
-          $("._review_wrap .review_table .li_body").each(function(index){
-                var review_idx = $(this).find(".tit .blocked").attr("onclick");
-                review_idx = review_idx.replace("SITE_SHOP_DETAIL.viewReviewDetail(", "");
-                review_idx = review_idx.replace(")", "");
-                review_idx = review_idx.replace(/'/gi, "");
-                review_idx = review_idx.split(",")[0];
+          $("._review_wrap .list_review_wrap .list_review_inner").each(function(index){
+              var useImage = ($(this).find(".thumb_detail_img_wrap").length>0);
 
               reviewHTML += '<tr data-idx="review_'+ (index+1) + '">';
               reviewHTML += '<td class="font-12">';
 
-              if($(this).find(".tit .board_thumb_wrap").css("display") != "none"){
+              if(useImage){
                   reviewHTML += '<i class="btl bt-photo icon"></i>';
               }
               reviewHTML += '</td>';
-              reviewHTML += '<td class="title"><p>'+$(this).find(".tit .list_text_title").html()+'</p></td>';
-              reviewHTML += '<td>'+$(this).find(".name").text()+'</td>';
-              reviewHTML += '<td class="score"><div class="star_point">'+$(this).find(".read .interlock_star_point").html()+'</div></td>';
+              reviewHTML += '<td class="title"><p>'+$(this).find(".txt_summary .open").html()+'</p></td>';
+              reviewHTML += '<td>'+$(this).find(".use_summary div:nth-child(1)").text()+'</td>';
+              reviewHTML += '<td class="score"><div class="star_point">'+$(this).find(".interlock_star_point").html()+'</div></td>';
               reviewHTML += '</tr>';
               reviewHTML += '<tr class="contentsArea" data-idx="review_'+ (index+1) + '">';
-              reviewHTML += '<td colspan="4" class="reviewInput" data-no=' + review_idx + '>';
+              reviewHTML += '<td colspan="4" class="reviewInput">';
+              reviewHTML += '<p>'+$(this).find(".txt_summary .fold").html()+'</p>';
+              if(useImage){
+                reviewHTML += '<div>'+$(this).find(".thumb_detail_img_wrap").html()+'</div>';
+              }
               reviewHTML += '</td>';
               reviewHTML += '</tr>';
           });
@@ -440,9 +441,9 @@ $(window).load(function(){
 
           $(".moncoStyle .npay_icon").remove();
         $(".moncoStyle .reply_cnt").remove();
-            $(".moncoStyle").find(".reviewInput").each(function(){
-              getReviewDetail($(this));
-            });
+            // $(".moncoStyle").find(".reviewInput").each(function(){
+            //   getReviewDetail($(this));
+            // });
       }
 
       $(".moncoStyle .contentsArea img").addClass("_img_light_gallery");
@@ -498,31 +499,27 @@ $(window).load(function(){
       }else{
           reviewHTML += '<div><ul class="moncoStyle2">';
 
-          $("._review_wrap .review_table .li_body").each(function(index){
-                var review_idx = $(this).find(".tit .blocked").attr("onclick");
-                review_idx = review_idx.replace("SITE_SHOP_DETAIL.viewReviewDetail(", "");
-                review_idx = review_idx.replace(")", "");
-                review_idx = review_idx.replace(/'/gi, "");
-                review_idx = review_idx.split(",")[0];
+          $("._review_wrap .list_review_wrap .list_review_inner").each(function(index){
+              var useImage = ($(this).find(".thumb_detail_img_wrap").length>0);
 
               reviewHTML += '<li data-idx="review_'+ (index+1) + '">';
               reviewHTML += '<div class="imgArea">';
 
-    			var bg = $(this).find(".board_thumb").css('background-image');
-    			  bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
-    			if((window.location.href).indexOf(bg) != -1) {
-    			  reviewHTML += productImg.html();
+    			if(useImage) {
+                    var bg = $(this).find(".thumb_detail_img_wrap img:nth-child(1)").attr("src");
+                    reviewHTML += ('<img style="image-rendering: -moz-crisp-edges; image-rendering: -o-crisp-edges; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" src="'+bg+'" class="_img_light_gallery cursor_pointer" data-src="'+bg+'">');
     			}else{
-    			  reviewHTML += ('<img style="image-rendering: -moz-crisp-edges; image-rendering: -o-crisp-edges; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" src="'+bg+'" class="_img_light_gallery cursor_pointer" data-src="'+bg+'">');
+                    reviewHTML += productImg.html();
     			}
 
               reviewHTML += '</div>';
-              reviewHTML += '<div class="contentsArea reviewInput" data-no=' + review_idx + '>';
+              reviewHTML += '<div class="contentsArea reviewInput">';
+              reviewHTML += $(this).find(".txt_summary .open").html();
               reviewHTML += '</div>';
               reviewHTML += '<div class="infoArea">';
               reviewHTML += (window.location.hostname!="015am.net" ? '평점' : '評点');
-              reviewHTML += '<div class="star_point">' + $(this).find(".read .interlock_star_point").html() + '</div>';
-              reviewHTML += '<span class="writer">' + $(this).find(".name").text() + '</span>';
+              reviewHTML += '<div class="star_point">' + $(this).find(".interlock_star_point").html() + '</div>';
+              reviewHTML += '<span class="writer">' + $(this).find(".use_summary div:nth-child(1)").text() + '</span>';
               reviewHTML += '</div>';
               reviewHTML += '</li>';
           });
@@ -534,9 +531,9 @@ $(window).load(function(){
 
       if($(".review_table .li_body").length>0){
           mobileReview();
-            $(".moncoStyle2").find(".reviewInput").each(function(){
-              getReviewDetail($(this));
-            });
+            // $(".moncoStyle2").find(".reviewInput").each(function(){
+            //   getReviewDetail($(this));
+            // });
       }
 
     if($(".review_table .li_body").length>0 && $("._prod_detail_tab_fixed a.active").hasClass("_review")){
@@ -592,6 +589,16 @@ $(window).load(function(){
          $(this).text($(this).text()*2);
          $(this).attr('style','display:inline-block !important');
       });
+
+      //네이버페이 로고
+      makeNpayLogo();
+    }
+
+    function makeNpayLogo(){
+        $("._review_wrap .list_review_wrap .list_review_inner").each(function(index){
+            var npayLogo = $(this).find(".review_npay");
+            console.log(npayLogo.length);
+        });
     }
 
     function mobileReview(){

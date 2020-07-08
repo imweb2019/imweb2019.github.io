@@ -434,7 +434,7 @@ $(document).ready(function(){
           reviewHTML += '</table></div>';
       }
 
-      if($(".review_table .li_body").length>0){
+      if($(".categorize.review-box .list_review_wrap li.list_review_inner").length>0){
           // detail_area_pc.before(reviewHTML);
           $(".categorize.review-box").before(reviewHTML);
 
@@ -530,7 +530,7 @@ $(document).ready(function(){
 
       tempHTML = reviewHTML;
 
-      if($(".review_table .li_body").length>0){
+      if($(".categorize.review-box .list_review_wrap li.list_review_inner").length>0){
           mobileReview();
             // $(".moncoStyle2").find(".reviewInput").each(function(){
             //   getReviewDetail($(this));

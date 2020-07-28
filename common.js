@@ -416,13 +416,13 @@ $(document).ready(function(){
                   reviewHTML += '<i class="btl bt-photo icon"></i>';
               }
               reviewHTML += '</td>';
-              reviewHTML += '<td class="title"><p>'+ ($(this).find(".txt_summary .open").length>0 ? $(this).find(".txt_summary .open").html() : $(this).find(".txt_summary").html()) + '</p></td>';
+              reviewHTML += '<td class="title"><p>'+ ($(this).find("span.open").length>0 ? $(this).find("span.open").html() : "") + '</p></td>';
               reviewHTML += '<td>'+$(this).find(".use_summary div:nth-child(1)").text()+'</td>';
               reviewHTML += '<td class="score"><div class="star_point">'+$(this).find(".interlock_star_point").html()+'</div></td>';
               reviewHTML += '</tr>';
               reviewHTML += '<tr class="contentsArea" data-idx="review_'+ (index+1) + '">';
               reviewHTML += '<td colspan="4" class="reviewInput">';
-              reviewHTML += '<p>' + ($(this).find(".txt_summary .fold").length>0 ? $(this).find(".txt_summary .fold").html() : $(this).find(".txt_summary").html()) +'</p>';
+              reviewHTML += '<p>' + ($(this).find("span.fold").length>0 ? $(this).find("span.fold").html() : "") +'</p>';
               if(useImage){
                 reviewHTML += '<div>'+$(this).find(".thumb_detail_img_wrap").html()+'</div>';
               }

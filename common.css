@@ -151,7 +151,6 @@ ul.list_review_wrap div.tabled [class^='review_comment_wrap'],
 }
 
 ._review_wrap .interlock_star_point + div.text-13 + div.text-14{
-    display: inline-block;
     vertical-align: middle;
 }
 

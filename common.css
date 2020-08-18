@@ -144,12 +144,6 @@ ul.list_review_wrap div.tabled [class^='review_comment_wrap'],
     position:relative;
 }
 
-.list_review_inner .use_summary + div.text-13 + div.text-14{
-    position: absolute;
-    top: 15px;
-    right: 0px;
-}
-
 ._review_wrap .interlock_star_point + div.text-13 + div.text-14{
     vertical-align: middle;
 }

@@ -134,7 +134,7 @@ ul.moncoStyle{
 ul.list_review_wrap div.tabled .table-cell .text-13:not(.use_summary),
 ul.list_review_wrap div.tabled [class^='review_comment_wrap'],
 .list_review_inner .use_summary + div.text-13 + div.text-14 .tit,
-.list_review_inner .use_summary + div.text-14,
+.list_review_inner .use_summary + div.text-13,
 ._review_wrap .interlock_star_point + div.text-13 + div.text-14 .tit
 {
     display:none !important;
@@ -244,7 +244,6 @@ ul.moncoStyle2 li:not(.active) > div.imgArea{
 ul.moncoStyle2 li > div.imgArea img{
     width:100%;
   height:100%;
-    height: auto !important;
   object-fit: cover;
 }
 
@@ -309,7 +308,7 @@ ul.moncoStyle2 .star_point a{
 }
 
 .contentsArea img{
-    max-width: 500px;
+    max-width: 500px !important;
     height: auto;
     display: block;
     margin: 10px 0;

@@ -515,7 +515,7 @@ $(document).ready(function(){
               reviewHTML += '<div class="contentsArea reviewInput">';
 
 
-              reviewHTML += ($(this).find(".txt_summary .open").length>0 ? $(this).find(".txt_summary .open").html() : $(this).find(".txt_summary").html());
+              reviewHTML += ($(this).find("span.open").length>0 ? $(this).find("span.open").html() : "");
               reviewHTML += '</div>';
               reviewHTML += '<div class="infoArea">';
               reviewHTML += (window.location.hostname!="015am.net" ? '평점' : '評点');

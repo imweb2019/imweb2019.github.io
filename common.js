@@ -289,7 +289,7 @@ $(document).ready(function(){
     		 });
                clickObj.attr("data-height", clickObj.height());
                clickObj.addClass("active");
-               clickObj.css("cssText", "height:" + ((clickObj.height()>imgHeight?clickObj.height():imgHeight)+30) + "px !important");
+               clickObj.css("cssText", "height:" + ((clickObj.height()>imgHeight?clickObj.height():imgHeight)+50) + "px !important");
            }else{
                 clickObj.removeClass("active");
            }

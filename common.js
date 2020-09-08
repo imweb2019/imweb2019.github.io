@@ -585,7 +585,7 @@ $(document).ready(function(){
           if(window.location.hostname!="mansim.kr"){
               $(this).text($(this).text()*2);
           }else{
-              if(getParam("idx")==1){
+              if(getParam("idx").split("#")[0]==1){
                   $(this).text(512);
               }
           }

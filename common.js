@@ -582,21 +582,12 @@ $(document).ready(function(){
       //imageTemp();
 
       $(".badge._review_count_text").each(function(){
-          if(window.location.hostname!="mansim.kr"){
-              $(this).text($(this).text()*2);
-          }else{
-              if(getParam("idx").split("#")[0]==1){
-                  $(this).text(512);
-              }
-          }
-
+          $(this).text($(this).text()*2);
           $(this).attr('style','display:inline-block !important');
       });
 
       $(".badge._qna_count_text").each(function(){
-          if(window.location.hostname!="mansim.kr"){
-              $(this).text($(this).text()*2);
-          }
+          $(this).text($(this).text()*2);
           $(this).attr('style','display:inline-block !important');
       });
     }

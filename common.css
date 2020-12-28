@@ -1,6 +1,14 @@
 .font-20{font-size:20pt;}
 .hide{display:none;}
 
+footer .footerFoldButton+.inside:not(.action){
+    display: none;
+}
+
+footer .footerFoldButton{
+    font-size: 0.6em;
+}
+
 table.moncoStyle{
     width:70%;
     margin:0 auto;

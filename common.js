@@ -322,6 +322,20 @@ $(document).ready(function(){
        $(document).on("click", "#prod_detail_content_tab_mobile a", function(e){
 		  $('html, body').animate({scrollTop : $(".spacer").offset().top}, 400);
 		});
+
+        $(document).on("click", "footer .footerFoldButton", function(e){
+            if($("footer .inside").hasClass("action")){
+                $("footer .inside").removeClass("action");
+                $(this).text("▽");
+            }else{
+                $("footer .inside").addClass("action");
+                $(this).text("△");
+            }
+ 		});
+
+        if(window.location.hostname!="5days.kr" && window.location.hostname!="mo0.kr"){
+            $("footer .inside").before("<span class='footerFoldButton'>▽</span>");
+        }
     });
 
     function detail_init(){

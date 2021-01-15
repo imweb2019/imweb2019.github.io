@@ -2,7 +2,7 @@
 .hide{display:none;}
 
 footer .footerFoldButton+.inside:not(.action){
-    display: none;
+    display: none !important;
 }
 
 footer .footerFoldButton{

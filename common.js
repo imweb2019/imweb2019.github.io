@@ -333,7 +333,7 @@ $(document).ready(function(){
             }
  		});
 
-        if(window.location.hostname!="5days.kr" && window.location.hostname!="mo0.kr"){
+        if(window.location.hostname!="5days.kr" && window.location.hostname!="mo0.kr" && window.location.hostname!="mansim.kr"){
             $("footer .inside").before("<span class='footerFoldButton'>▽</span>");
         }
     });

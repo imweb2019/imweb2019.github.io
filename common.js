@@ -1,6 +1,22 @@
 var commentObj;
 var csMsg = "";
 
+function checkShortUrl(){
+	$.ajax({
+        type: 'POST',
+        data: {url: window.location.href},
+        url: ('https://api.inisco.kr/checkShortUrl'),
+        dataType: 'json',
+        async: false,
+        cache: false,
+        success: function (res) {
+            if(res.original && res.original!=""){
+				window.location = res.original;
+			}
+        }
+    });
+}
+
 function getReviewDetail(obj){
     $.ajax({
         type: 'POST',

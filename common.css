@@ -17,6 +17,10 @@ table.moncoStyle{
     table-layout: fixed;
 }
 
+table.moncoStyle .dummy{
+	display:none;
+}
+
 .moncoStyleTitle{
     width:70%;
     margin:0 auto;

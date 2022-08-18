@@ -445,14 +445,15 @@ $(document).ready(function(){
               if(useImage){
                   reviewHTML += '<i class="btl bt-photo icon"></i>';
               }
+
               reviewHTML += '</td>';
-              reviewHTML += '<td class="title"><p>'+ ($(this).find("span.open").length>0 ? $(this).find("span.open").html() : "") + '</p></td>';
+              reviewHTML += '<td class="title"><p>'+ ($(this).find(".txt._txt._review_body").length>0 ? $(this).find(".txt._txt._review_body").text() : "") + '</p></td>';
               reviewHTML += '<td>'+$(this).find(".use_summary div:nth-child(1)").text()+'</td>';
               reviewHTML += '<td class="score"><div class="star_point">'+$(this).find(".interlock_star_point").html()+'</div></td>';
               reviewHTML += '</tr>';
               reviewHTML += '<tr class="contentsArea" data-idx="review_'+ (index+1) + '">';
               reviewHTML += '<td colspan="4" class="reviewInput">';
-              reviewHTML += '<p>' + ($(this).find("span.fold").length>0 ? $(this).find("span.fold").html() : "") +'</p>';
+              reviewHTML += '<p>' + ($(this).find(".txt._txt._review_body").length>0 ? $(this).find(".txt._txt._review_body").html() : "") +'</p>';
               if(useImage){
                 reviewHTML += '<div>'+$(this).find(".thumb_detail_img_wrap").html()+'</div>';
               }
@@ -545,7 +546,7 @@ $(document).ready(function(){
               reviewHTML += '<div class="contentsArea reviewInput">';
 
 
-              reviewHTML += ($(this).find("span.open").length>0 ? $(this).find("span.open").html() : "");
+              reviewHTML += ($(this).find(".txt._txt._review_body").length>0 ? $(this).find(".txt._txt._review_body").text() : "");
               reviewHTML += '</div>';
               reviewHTML += '<div class="infoArea">';
               reviewHTML += (window.location.hostname!="015am.net" ? '평점' : '評点');

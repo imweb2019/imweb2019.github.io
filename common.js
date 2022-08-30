@@ -586,7 +586,7 @@ $(document).ready(function(){
           thumbnail: false,
           animateThumb: false,
           showThumbByDefault: false,
-          hash: false,
+          hash: true,
           speed: 200
       });
 

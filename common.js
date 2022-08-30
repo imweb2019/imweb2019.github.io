@@ -589,6 +589,14 @@ $(document).ready(function(){
           hash: true,
           speed: 200
       });
+		  
+			$('.moncoStyle2 .imgArea').on('onBeforeOpen.lg', function(event){
+				$("html").addClass("overflow-hidden");
+			});
+			
+			$('.moncoStyle2 .imgArea').on('onBeforeClose.lg', function(event){
+				$("html").removeClass("overflow-hidden");
+			});
 
       if(landingPage.hasOwnProperty(parseInt(idx)) && isLanding){
           $(".buy_btns.mobile .btn.buy").text(landingPage[parseInt(idx)].buyBtn);

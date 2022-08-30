@@ -261,7 +261,7 @@ ul.moncoStyle2 li > div.imgArea img{
 }
 
 ul.moncoStyle2 li > div.imgArea img:not(:first-child){
-    margin-top: 7px;
+    display:none;
 }
 
 ul.moncoStyle2 li > div.contentsArea{

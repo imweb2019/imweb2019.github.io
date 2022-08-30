@@ -612,6 +612,10 @@ $(document).ready(function(){
       }
       //imageTemp();
 
+	  $(".badge._review_count_text").each(function(){
+          $(this).attr('style','display:inline-block !important');
+      });
+
       $(".badge._qna_count_text").each(function(){
           $(this).text($(this).text()*2);
           $(this).attr('style','display:inline-block !important');

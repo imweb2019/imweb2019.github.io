@@ -336,7 +336,7 @@ $(document).ready(function(){
        });
 
        $(document).on("click", "#prod_detail_content_tab_mobile a", function(e){
-		  $('html, body').animate({scrollTop : $(".spacer").offset().top}, 400);
+		  //$('html, body').animate({scrollTop : $(".spacer").offset().top}, 400);
 		});
 
         $(document).on("click", "footer .footerFoldButton", function(e){
@@ -611,11 +611,6 @@ $(document).ready(function(){
           productImg_m.attr("data-original", "http://222.239.251.70/image/" + getParam("s") + "/" + idx + ".png");
       }
       //imageTemp();
-
-      $(".badge._review_count_text").each(function(){
-          $(this).text($(this).text()*2);
-          $(this).attr('style','display:inline-block !important');
-      });
 
       $(".badge._qna_count_text").each(function(){
           $(this).text($(this).text()*2);

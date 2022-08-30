@@ -277,7 +277,7 @@ ul.moncoStyle2 li > div.contentsArea{
 ul.moncoStyle2 li > div.infoArea{
     position:absolute;
     background-color: white;
-    padding-top: 3px;
+    padding-top: 5px;
     padding-bottom: 3px;
     bottom: 1px;
 }

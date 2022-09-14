@@ -179,6 +179,17 @@ $(document).ready(function(){
     var tempHTML="";
     reviewTotalCount = $(".detail_review_wrap ._review_count_text").text();
 
+    // 리뷰 로딩 체크
+    var countCode = setInterval( function() {
+        loadCount++;
+        if($("._review_wrap .list_review_wrap .list_review_inner").length>0 || loadCount>10){
+            clearInterval(countCode);
+            countCode = "";
+            loadCount=0;
+            detail_init();
+        }
+    },200);
+
     // q&a 로딩 체크
     var countCode2 = setInterval( function() {
         loadCount2++;
@@ -229,6 +240,18 @@ $(document).ready(function(){
         //19.08.06//////////////////////////////////////////////
     });
 
+    $(document).on("click", "._prod_detail_tab_fixed a", function(){
+        if($(this).hasClass("_detail") && $(".moncoStyle2").length == 0){
+            mobileReview();
+        }
+
+        if($(this).hasClass("_review")){
+            $("._prod_detail_detail_lazy_load_mobile").addClass("reviewOn");
+            reviewImageChange();
+        }else{
+            $("._prod_detail_detail_lazy_load_mobile").removeClass("reviewOn");
+        }
+    });
 
     $(document).on("click", ".moncoStyle tbody tr:not(.contentsArea)", function(){
         if($(this).next().hasClass("on")){
@@ -566,6 +589,14 @@ $(document).ready(function(){
           hash: true,
           speed: 200
       });
+		  
+			$('.moncoStyle2 .imgArea').on('onBeforeOpen.lg', function(event){
+				$("html").addClass("overflow-hidden");
+			});
+			
+			$('.moncoStyle2 .imgArea').on('onBeforeClose.lg', function(event){
+				$("html").removeClass("overflow-hidden");
+			});
 
       if(landingPage.hasOwnProperty(parseInt(idx)) && isLanding){
           $(".buy_btns.mobile .btn.buy").text(landingPage[parseInt(idx)].buyBtn);
@@ -589,8 +620,7 @@ $(document).ready(function(){
       }
       //imageTemp();
 
-      $(".badge._review_count_text").each(function(){
-          $(this).text($(this).text()*2);
+	  $(".badge._review_count_text").each(function(){
           $(this).attr('style','display:inline-block !important');
       });
 

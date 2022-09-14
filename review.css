@@ -1,0 +1,284 @@
+#first_review ._review_wrap #review_top,
+#first_review ._review_wrap ul.list_review_wrap{
+	display:none;
+}
+
+#first_review .paging-block:not(.myReview),
+#prod_detail_content_mobile > .review_top,
+#prod_detail_content_mobile > .list_review_wrap,
+#prod_detail_content_mobile:not(.product_qna_mobile) > .li_footer,
+#prod_detail_content_mobile:not(.product_qna_mobile) > .paging-block
+{
+	display:none;
+}
+
+.myReview-pagination .pagination{
+	display:inline-block !important;
+}
+
+table.moncoStyle .title p {
+    word-break: break-word;
+    display: -webkit-box;
+	line-clamp: 1;
+	box-orient: vertical;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    vertical-align: middle;
+}
+
+.myReview-loading{
+	display:none;
+	position: relative;
+	height: 400px;
+}
+
+@-webkit-keyframes myReview-loading {
+	0% {
+		transform: translate(-37.5%);
+	}
+	to {
+		transform: translate(37.5%);
+	}
+}
+	
+@keyframes myReview-loading {
+	0% {
+		transform: translate(-37.5%);
+	}
+	to {
+		transform: translate(37.5%);
+	}
+}
+
+.myReview{
+	text-align:left;
+}
+
+.myReview-loading > div{
+	width: 100%;
+	height: 100%;
+	background: rgba(190, 190, 190, 0.2);
+	border-radius: 5px;
+	margin-bottom: 10px;
+	list-style: none;
+	position: relative;
+	overflow: hidden;
+	background: 0 0;
+}
+
+.myReview-loading > div:after {
+	position: absolute;
+	inset: 0 -150%;
+	background: linear-gradient(
+		90deg,
+		rgba(190, 190, 190, 0.2) 25%,
+		rgba(129, 129, 129, 0.24) 37%,
+		rgba(190, 190, 190, 0.2) 63%
+	);
+	animation: myReview-loading 2s infinite;
+	content: '';
+}
+
+.myReview-top{
+	color: rgba(64,64,64,0.6);
+}
+
+.myReview-middle a:after{
+	border-bottom: 0 !important;
+}
+
+.myReview-middle ul{
+    list-style: none;
+    padding-left: 0;
+	border-top: 1px solid #404040;
+}
+
+.myReview-middle li{
+	padding: 0.9em 0 1.2em;
+	border-bottom: 1px solid rgba(64,64,64,0.15);
+	cursor: pointer;
+}
+
+.mr-score a{
+	font-size: 12px !important;
+}
+
+.mr-onlyPhoto{
+	font-size: 14px !important;
+	cursor: pointer;
+}
+
+.mr-onlyPhoto i{
+	position: relative;
+    top: 2px;
+    margin-right: 8px;
+	font-size: 16px !important;
+}
+
+.mr-body{
+	font-size: 14px !important;
+	max-width: initial !important;
+}
+
+.mr-body-content{
+	line-height: 1.5;
+	white-space: normal;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+	overflow: hidden;
+}
+
+.myReview-middle li.active .mr-body-content{
+	-webkit-line-clamp: unset;
+}
+
+.mr-body-preview{
+	width: 80px;
+	margin-top: 15px;
+}
+
+.mr-body-preview img{
+	width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.myReview-middle li:not(.active) .mr-body-content img,
+.myReview-middle li.active .mr-body-preview{
+	display: none;
+}
+
+.mr-body-content img{
+	margin-top: 15px;
+	max-width: 100%;
+}
+
+.mr-info{
+	padding-top: 4px;
+	color: rgba(64,64,64,0.65);
+}
+
+.myReview-bottom{
+	vertical-align: middle;
+    position: relative;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+.myReview-bottom .myReview-writeButton{
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+.myReview-bottom .myReview-pagination ul.pagination{
+	margin: 0;
+}
+
+.myReview-bottom .myReview-pagination ul.pagination li{
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.myReview-bottom .myReview-pagination ul.pagination li span {
+	width: 100%;
+    line-height: 24px;
+    margin: 0;
+    display: inline-block;
+	cursor: pointer;
+	border: 0;
+	padding: 0;
+	font-size: 14px;
+}
+
+.myReview-bottom .myReview-pagination ul.pagination li span i{
+	vertical-align: middle;
+}
+
+.myReview-bottom .myReview-pagination ul.pagination li.active span{
+    background: transparent;
+    border: 0;
+    color: #404040;
+	font-weight: bold;
+	cursor: default;
+}
+
+.myReview-bottom .myReview-pagination ul.pagination li.disabled span {
+	cursor: not-allowed;
+    color: rgba(64,64,64,0.4);
+}
+
+.mr-content{
+	padding-right: 20px;
+}
+
+.mr_writer,
+.mr-naverPay{
+	margin-bottom:0;
+}
+
+.mr-mobile{
+	display: none;
+}
+
+@media (max-width: 768px){
+	.myReview{
+		display: none;
+	}
+
+	.myReview-loading{
+		height: 800px;
+	}
+	
+	#prod_detail_content_mobile.product_review_mobile + .myReview{
+		display: block;
+	}
+
+	.mr-pc{
+		display:none;
+	}
+	.mr-mobile{
+		display:inherit;
+	}
+
+	.mr-content{
+		padding-right: 0px;
+	}
+
+	.mr-info{
+		padding-top: 0px;
+	}
+
+	.mr-writer,
+	.mr-naverPay{
+		display:inline-block;
+	}
+
+	.mr-naverPay{
+		margin-left:5px;
+	}
+
+	.myReview-middle{
+		margin-bottom: 10px;
+	}
+
+	.myReview-bottom{
+		padding-top: 0px;
+	}
+
+	.myReview-bottom .myReview-writeButton{
+		position: relative;
+		top: inherit;
+		transform: inherit;
+		right: inherit;
+		text-align:right;
+	}
+
+	.myReview-bottom .myReview-pagination{
+		margin-top: 15px;
+	}
+}

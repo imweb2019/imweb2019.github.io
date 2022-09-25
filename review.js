@@ -76,7 +76,7 @@ function makeBestReview(){
 				$(this).parents("li").height($(this).parents(".imgArea").width());
 				$(this).parents(".imgArea").height($(this).parents(".imgArea").width());
 				$(this).parents("li").find(".contentsArea:before").css("left", "10px");
-				$(this).parents("li").find(".infoArea").css("left", $(this).width()+15);
+				$(this).parents("li").find(".infoArea").css("left", $(this).parents(".imgArea").width()+15);
 				$(this).parents("li").find(".infoArea").css("width", $(this).parents("li").find(".contentsArea").width());
 			});
 		});

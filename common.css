@@ -229,7 +229,7 @@ ul.moncoStyle2{
 
 ul.moncoStyle2 li{
     list-style: none;
-    overflow-y: hidden;
+    overflow: hidden;
     position:relative;
     padding-top:5px;
     padding-bottom:5px;

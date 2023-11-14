@@ -135,7 +135,7 @@ function makeReviewMiddle(){
 function makeReviewBottom(data){
 	var htmlString = '';
 	htmlString += '<div class="myReview-bottom">';
-	htmlString += '<div class="myReview-writeButton">'+$("#first_review ._review_wrap > a").prop("outerHTML")+'</div>';
+	htmlString += '<div class="myReview-writeButton">'+$("#first_review ._review_wrap a").prop("outerHTML")+'</div>';
 	htmlString += '<div class="myReview-pagination"></div>';
 	htmlString += '</div>';
 	return htmlString;
@@ -366,13 +366,13 @@ function changeReviewPage(page){
 $(window).load(function(){
 	isRenderComplete = true;
 	var pcReview = $("#first_review ._review_wrap #review_top");
-	var mobileReview = $("#prod_detail_content_mobile");
+	//var mobileReview = $("#mobileFisrtReview");
 
 	var pcTopReview = $(".categorize.review-box");
-	var mobileTopReview = $("#tab_offset");
+	var mobileTopReview = $(".categorize-mobile:not(.buy_btns)");
 
 	pcReview.after('<div class="myReview"></div>');
-	mobileReview.after('<div class="myReview"></div>');
+	//mobileReview.after('<div class="myReview"></div>');
 
 	pcTopReview.before('<div class="myTopReview mr-pc"></div>');
 	mobileTopReview.before('<div class="myTopReview mr-mobile"></div>');

@@ -226,7 +226,7 @@ table.moncoStyle .title p {
 }
 
 @media (max-width: 768px){
-	.myReview{
+	.myReview .myReview-writeButton{
 		display: none;
 	}
 

@@ -393,6 +393,8 @@ $(window).load(function(){
 		makeGeneralReview();
 	}
 
+	window.scrollTo(0, 0);
+
 });
 
 $(document).on("click", ".mr-onlyPhoto", function(){

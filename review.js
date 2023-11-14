@@ -393,8 +393,12 @@ $(window).load(function(){
 		makeGeneralReview();
 	}
 
-	window.scrollTo(0, 0);
+});
 
+
+$(document).on("click", ".categorize-mobile #fixed_tab_mobile .prod_tab_3 > a", function(){
+	const element = document.getElementById("fixed_tab_mobile");
+	element.scrollIntoView();
 });
 
 $(document).on("click", ".mr-onlyPhoto", function(){

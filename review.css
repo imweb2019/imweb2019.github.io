@@ -233,6 +233,10 @@ table.moncoStyle .title p {
 	.myReview-loading{
 		height: 800px;
 	}
+
+	.categorize-mobile > div[class*="detail_"]{
+		padding-top: 30px;
+	}
 	
 	#prod_detail_content_mobile.product_review_mobile + .myReview{
 		display: block;

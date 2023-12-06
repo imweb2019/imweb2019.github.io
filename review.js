@@ -135,7 +135,6 @@ function makeReviewMiddle(){
 function makeReviewBottom(data){
 	var htmlString = '';
 	htmlString += '<div class="myReview-bottom">';
-	htmlString += '<div class="myReview-writeButton">'+$("#first_review ._review_wrap a").prop("outerHTML")+'</div>';
 	htmlString += '<div class="myReview-pagination"></div>';
 	htmlString += '</div>';
 	return htmlString;
@@ -363,36 +362,71 @@ function changeReviewPage(page){
 	$(".myReview-pagination").html(makePagination({current_page: page, last_page: generalReviewResult.data.last_page, perPage: generalReviewResult.data.perPage, total: generalReviewResult.data.total}));
 }
 
+function setPcReview(){
+	const callback = (mutationList, observer) => {
+	  if(mutationList[0].target.className.includes('product_review')){
+		var pcReview = $(mutationList[0].target).children("a.btn");
+		pcReview.after('<div class="myReview"></div>');
+		$(".myReview").append(makeReviewTop());
+		$(".myReview").append(makeReviewMiddle());
+		$(".myReview").append(makeReviewBottom());
+		$('.myReview-loading').show();
+		$('.myReview-contents').hide();
+		$('.myReview-bottom').hide();
+		if(generalReviewResult){
+			makeGeneralReview();
+		}
+	  }
+	};
+	const observer = new MutationObserver(callback);
+
+	const el = $("._prod_detail_detail_lazy_load")[0];
+
+	observer.observe(el, {
+		attributes: true, 
+	});
+}
+
+function setMobileReview(){
+	const callback = (mutationList, observer) => {
+	  if(mutationList[0].target.className.includes('product_review_mobile')){
+		var mobileReview = $(mutationList[0].target).children(".prod_review_guide");
+		mobileReview.after('<div class="myReview"></div>');
+		$(".myReview").append(makeReviewTop());
+		$(".myReview").append(makeReviewMiddle());
+		$(".myReview").append(makeReviewBottom());
+		$('.myReview-loading').show();
+		$('.myReview-contents').hide();
+		$('.myReview-bottom').hide();
+		if(generalReviewResult){
+			makeGeneralReview();
+		}
+	  }
+	};
+	const observer = new MutationObserver(callback);
+
+	const el = $("._prod_detail_detail_lazy_load_mobile")[0];
+
+	observer.observe(el, {
+		attributes: true, 
+	});
+}
+
 $(window).load(function(){
+	setPcReview();
+	setMobileReview();
+
 	isRenderComplete = true;
-	var pcReview = $("#first_review ._review_wrap #review_top");
-	//var mobileReview = $("#mobileFisrtReview");
 
 	var pcTopReview = $(".categorize.review-box");
 	var mobileTopReview = $(".categorize-mobile:not(.buy_btns)");
 
-	pcReview.after('<div class="myReview"></div>');
-	//mobileReview.after('<div class="myReview"></div>');
-
 	pcTopReview.before('<div class="myTopReview mr-pc"></div>');
 	mobileTopReview.before('<div class="myTopReview mr-mobile"></div>');
-
-	$(".myReview").append(makeReviewTop());
-	$(".myReview").append(makeReviewMiddle());
-	$(".myReview").append(makeReviewBottom());
-
-	$('.myReview-loading').show();
-	$('.myReview-contents').hide();
-	$('.myReview-bottom').hide();
 
 	if(bestReviewResult){
 		makeBestReview();
 	}
-
-	if(generalReviewResult){
-		makeGeneralReview();
-	}
-
 });
 
 

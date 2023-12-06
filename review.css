@@ -1,5 +1,9 @@
 #first_review ._review_wrap #review_top,
-#first_review ._review_wrap ul.list_review_wrap{
+#first_review ._review_wrap ul.list_review_wrap,
+.product_review > .review_top,
+.product_review > .list_review_wrap,
+.product_review > .paging-block > ul.pagination
+{
 	display:none;
 }
 
@@ -7,13 +11,26 @@
 #prod_detail_content_mobile > .review_top,
 #prod_detail_content_mobile > .list_review_wrap,
 #prod_detail_content_mobile:not(.product_qna_mobile) > .li_footer,
-#prod_detail_content_mobile:not(.product_qna_mobile) > .paging-block
+#prod_detail_content_mobile:not(.product_qna_mobile) > .paging-block,
+.product_review_mobile > .review_top,
+.product_review_mobile > .list_review_wrap,
+.product_review_mobile > .paging-block
 {
 	display:none;
 }
 
+.product_review > .paging-block,
+.product_review_mobile > .li_footer{
+	margin-bottom:50px;
+}
+
 .myReview-pagination .pagination{
 	display:inline-block !important;
+}
+
+#fixed_tab ul.site_prod_nav > li a.active,
+#fixed_tab_mobile ul.site_prod_nav > li a.active{
+	pointer-events: none;
 }
 
 table.moncoStyle .title p {

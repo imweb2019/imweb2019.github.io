@@ -381,10 +381,11 @@ function setPcReview(){
 	const observer = new MutationObserver(callback);
 
 	const el = $("._prod_detail_detail_lazy_load")[0];
-
-	observer.observe(el, {
-		attributes: true, 
-	});
+	if(el){
+		observer.observe(el, {
+			attributes: true, 
+		});
+	}
 }
 
 function setMobileReview(){
@@ -407,9 +408,11 @@ function setMobileReview(){
 
 	const el = $("._prod_detail_detail_lazy_load_mobile")[0];
 
-	observer.observe(el, {
-		attributes: true, 
-	});
+	if(el){
+		observer.observe(el, {
+			attributes: true, 
+		});
+	}
 }
 
 $(window).load(function(){

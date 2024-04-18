@@ -408,7 +408,8 @@ function setPcReview(){
 function setMobileReview(){
 	const callback = (mutationList, observer) => {
 	  if(mutationList[0].target.className.includes('product_review_mobile')){
-		var mobileReview = $(mutationList[0].target).children(".prod_review_guide");
+		var mobileReviewArr = $(mutationList[0].target).children(".prod_review_guide");
+		var mobileReview = $(mobileReviewArr[mobileReviewArr.length-1]);
 		mobileReview.after('<div class="myReview"></div>');
 		$(".myReview").append(makeReviewTop());
 		$(".myReview").append(makeReviewMiddle());
@@ -428,7 +429,8 @@ function setMobileReview(){
 	if(el){
 		if(location.hash == "#prod_detail_review"){
 			if(el.className.includes('product_review')){
-				var mobileReview = $(el).children(".prod_review_guide");
+				var mobileReviewArr = $(el).children(".prod_review_guide");
+				var mobileReview = $(mobileReviewArr[mobileReviewArr.length-1]);
 				mobileReview.after('<div class="myReview"></div>');
 				$(".myReview").append(makeReviewTop());
 				$(".myReview").append(makeReviewMiddle());

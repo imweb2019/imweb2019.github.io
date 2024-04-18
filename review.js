@@ -381,7 +381,24 @@ function setPcReview(){
 	const observer = new MutationObserver(callback);
 
 	const el = $("._prod_detail_detail_lazy_load")[0];
+
 	if(el){
+		if(location.hash == "#prod_detail_review"){
+			if(el.className.includes('product_review')){
+				var pcReview = $(el).children("a.btn");
+				pcReview.after('<div class="myReview"></div>');
+				$(".myReview").append(makeReviewTop());
+				$(".myReview").append(makeReviewMiddle());
+				$(".myReview").append(makeReviewBottom());
+				$('.myReview-loading').show();
+				$('.myReview-contents').hide();
+				$('.myReview-bottom').hide();
+				if(generalReviewResult){
+					makeGeneralReview();
+				}
+			}
+		}
+
 		observer.observe(el, {
 			attributes: true, 
 		});
@@ -409,6 +426,22 @@ function setMobileReview(){
 	const el = $("._prod_detail_detail_lazy_load_mobile")[0];
 
 	if(el){
+		if(location.hash == "#prod_detail_review"){
+			if(el.className.includes('product_review')){
+				var mobileReview = $(el).children(".prod_review_guide");
+				mobileReview.after('<div class="myReview"></div>');
+				$(".myReview").append(makeReviewTop());
+				$(".myReview").append(makeReviewMiddle());
+				$(".myReview").append(makeReviewBottom());
+				$('.myReview-loading').show();
+				$('.myReview-contents').hide();
+				$('.myReview-bottom').hide();
+				if(generalReviewResult){
+					makeGeneralReview();
+				}
+			}
+		}
+
 		observer.observe(el, {
 			attributes: true, 
 		});

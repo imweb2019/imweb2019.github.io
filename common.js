@@ -326,8 +326,9 @@ $(document).ready(function(){
             }
  		});
 		
-		//if(window.location.hostname!="5days.kr" && window.location.hostname!="mo0.kr" && window.location.hostname!="washpack.kr" && window.location.hostname!="thats.kr"){
-        $("footer .inside").before("<span class='footerFoldButton'>▽</span>");
+		if(window.location.hostname!="5days.kr"){
+			$("footer .inside").before("<span class='footerFoldButton'>▽</span>");
+		}
 		
     });
 

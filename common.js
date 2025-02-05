@@ -326,7 +326,7 @@ $(document).ready(function(){
             }
  		});
 		
-		if(window.location.hostname!="5days.kr"){
+		if(window.location.hostname!="5days.kr" || window.location.hostname!="humanby.com"){
 			$("footer .inside").before("<span class='footerFoldButton'>▽</span>");
 		}
 		

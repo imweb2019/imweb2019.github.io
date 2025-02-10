@@ -327,7 +327,8 @@ $(document).ready(function(){
  		});
 		
 		if(window.location.hostname!="5days.kr" && window.location.hostname!="humanby.com"){
-			$("footer .inside").before("<span class='footerFoldButton'>▽</span>");
+			// 250210 전브랜드 오픈
+			//$("footer .inside").before("<span class='footerFoldButton'>▽</span>");
 		}
 		
     });

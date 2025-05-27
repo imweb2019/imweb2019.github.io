@@ -1,12 +1,17 @@
 .font-20{font-size:20pt;}
 .hide{display:none;}
 
-footer .footerFoldButton+.inside:not(.action){
-    display: none !important;
+footer .footer-line{
+	font-size:0.8rem;
+	margin-bottom:20px !important;
 }
 
-footer .footerFoldButton{
-    font-size: 0.6em;
+footer .footer-line>:nth-child(n+2) {
+    margin-left: 10px;
+}
+
+footer .footer-line.fold+.inside{
+    display: none !important;
 }
 
 table.moncoStyle{

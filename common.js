@@ -317,19 +317,23 @@ $(document).ready(function(){
 		});
 
         $(document).on("click", "footer .footerFoldButton", function(e){
-            if($("footer .inside").hasClass("action")){
-                $("footer .inside").removeClass("action");
-                $(this).text("▽");
+            if($("footer .footer-line").hasClass("fold")){
+                $("footer .footer-line").removeClass("fold");
+                $(this).text("사업자정보△");
             }else{
-                $("footer .inside").addClass("action");
-                $(this).text("△");
+                $("footer .footer-line").addClass("fold");
+                $(this).text("사업자정보▽");
             }
  		});
 		
-		if(window.location.hostname!="5days.kr" && window.location.hostname!="humanby.com"){
-			// 250210 전브랜드 오픈
-			//$("footer .inside").before("<span class='footerFoldButton'>▽</span>");
+		footerAction = "";
+
+		if(isFold){
+			footerAction = "fold"
 		}
+
+		$("footer .inside").before("<p class='footer-line " + (isFold ? "fold" : "") + "'><span onClick='void kakaoChatChannel();'>TEL : " + tel + "</span><span onClick='void kakaoChatChannel();'>문의 : 카카오 @" + kakaoName + "</span><span class='footerFoldButton'>사업자정보" + (isFold ? "▽" : "△") + "</span></p>");
+
 
 		// 상품상세 하단 250527
 		const observer = new MutationObserver(() => {

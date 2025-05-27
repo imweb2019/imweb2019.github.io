@@ -330,8 +330,68 @@ $(document).ready(function(){
 			// 250210 전브랜드 오픈
 			//$("footer .inside").before("<span class='footerFoldButton'>▽</span>");
 		}
-		
+
+		// 상품상세 하단 250527
+		const observer = new MutationObserver(() => {
+			const $el = $(".product-detail-common");
+			if ($el.length > 0) {
+				observer.disconnect(); // 더 이상 감시 안 함
+				product_detail_footer();
+			}
+		});
+
+		observer.observe(document.body, {
+			childList: true,
+			subtree: true
+		});
     });
+
+	function product_detail_footer(){
+		const result = [];
+		$(".product-detail-common").children(".product-detail-common-title").each(function(){
+			const $title = $(this);
+			const $contents = $title.next(".product-detail-common-contents");
+			
+			if ($contents.length) {
+				result.push({
+					title: $title.html().trim(),
+					contents: $contents.html().trim()
+				});
+			}
+		});
+
+		result.push({
+			title: "<p>" + $(".product-notify-wrap .product-notify-title").html().trim() + "</p>",
+			contents: $(".product-notify-wrap .product-notify-group").map(function() {
+				return this.outerHTML;
+			}).get().join("\n")
+		});
+
+		accordionHTML = '';
+		accordionHTML += '<div class="acc">';
+		
+		result.forEach(item => {
+			accordionHTML += '<div class="acc_elem">';
+			accordionHTML += '<div class="acc_title">' + item.title + '</div>';
+			accordionHTML += '<div class="acc_contents" style="display: none;">' + item.contents + '</div>';
+			accordionHTML += '</div>';
+		});
+
+		accordionHTML += '</div>';
+
+		$(".shop_view_body").append(accordionHTML);
+
+		$(document).on('click', '.acc_elem', function() {
+			const $clicked = $(this);
+			$('.acc_elem').not($clicked).each(function () {
+				$(this).children('.acc_contents').slideUp();
+				$(this).children('.acc_title').removeClass('acc_active');
+			});
+
+			$clicked.children('.acc_contents').slideToggle();
+			$clicked.children('.acc_title').toggleClass('acc_active');
+		});
+	}
 
     function detail_init(){
       var detail_area_pc = $("._prod_detail_detail_lazy_load");

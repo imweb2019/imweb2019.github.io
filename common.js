@@ -360,12 +360,14 @@ $(document).ready(function(){
 			}
 		});
 
-		result.push({
-			title: "<p>" + $(".product-notify-wrap .product-notify-title").html().trim() + "</p>",
-			contents: $(".product-notify-wrap .product-notify-group").map(function() {
-				return this.outerHTML;
-			}).get().join("\n")
-		});
+		if($(".product-notify-wrap .product-notify-title").length > 0){
+			result.push({
+				title: "<p>" + $(".product-notify-wrap .product-notify-title").html().trim() + "</p>",
+				contents: $(".product-notify-wrap .product-notify-group").map(function() {
+					return this.outerHTML;
+				}).get().join("\n")
+			});
+		}
 
 		accordionHTML = '';
 		accordionHTML += '<div class="acc">';

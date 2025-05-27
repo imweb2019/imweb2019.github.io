@@ -375,6 +375,7 @@ ul.moncoStyle2 .star_point a{
 	padding-top : 10px;
 	padding-bottom : 10px;
 	border-bottom: 1px solid #dddddd;
+	cursor: pointer;
 }
 
 .acc>:nth-child(n+2) {

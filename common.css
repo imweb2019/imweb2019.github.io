@@ -1,6 +1,10 @@
 .font-20{font-size:20pt;}
 .hide{display:none;}
 
+body.shop_view .companyDetailHide{
+	display: none !important;
+}
+
 footer .footer-line{
 	font-size:0.8rem;
 	margin-bottom:20px !important;

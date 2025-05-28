@@ -332,22 +332,49 @@ $(document).ready(function(){
 			footerAction = "fold"
 		}
 
-		$("footer .inside").before("<p class='footer-line " + (isFold ? "fold" : "") + "'><span onClick='void kakaoChatChannel();'>TEL : " + tel + "</span><span onClick='void kakaoChatChannel();'>문의 : 카카오 @" + kakaoName + "</span><span class='footerFoldButton'>사업자정보" + (isFold ? "▽" : "△") + "</span></p>");
+		footerLineHTML = "";
+		footerLineHTML += "<p class='footer-line " + (isFold ? "fold" : "") + "'><span onClick='void kakaoChatChannel();'>TEL : " + tel + "</span><span onClick='void kakaoChatChannel();'>문의 : 카카오 @" + kakaoName + "</span>";
+		footerLineHTML += "<span class='footerFoldButton " + (companyDetailHide ? "companyDetailHide" : "") +  "'>사업자정보" + (isFold ? "▽" : "△") + "</span>";
+		footerLineHTML += "</p>";
+		$("footer .inside").before(footerLineHTML);
 
 
 		// 상품상세 하단 250527
-		const observer = new MutationObserver(() => {
-			const $el = $(".product-detail-common");
-			if ($el.length > 0) {
-				observer.disconnect(); // 더 이상 감시 안 함
-				product_detail_footer();
-			}
-		});
+		const parent = document.querySelector('#prod_detail');
+		if(parent != null){
+			const observer = new MutationObserver((mutations) => {
+			  mutations.forEach((mutation) => {
+				mutation.addedNodes.forEach((node) => {
+					if (node.nodeType === 1) {
+						if (node.matches('.product-detail-common')) {
+						  product_detail_footer();
+						}else{
+							const widgets = node.querySelectorAll('.product-detail-common');
+							widgets.forEach((el) => {
+							  product_detail_footer();
+							});
+						}
+					  }
+				});
+			  });
+			});
 
-		observer.observe(document.body, {
-			childList: true,
-			subtree: true
-		});
+			observer.observe(parent, {
+			  childList: true,
+			  subtree: true
+			});
+
+			$(document).on('click', '.acc_elem', function() {
+				const $clicked = $(this);
+				$('.acc_elem').not($clicked).each(function () {
+					$(this).children('.acc_contents').slideUp();
+					$(this).children('.acc_title').removeClass('acc_active');
+				});
+
+				$clicked.children('.acc_contents').slideToggle();
+				$clicked.children('.acc_title').toggleClass('acc_active');
+			});
+		}
     });
 
 	function product_detail_footer(){
@@ -386,17 +413,6 @@ $(document).ready(function(){
 		accordionHTML += '</div>';
 
 		$(".shop_view_body").append(accordionHTML);
-
-		$(document).on('click', '.acc_elem', function() {
-			const $clicked = $(this);
-			$('.acc_elem').not($clicked).each(function () {
-				$(this).children('.acc_contents').slideUp();
-				$(this).children('.acc_title').removeClass('acc_active');
-			});
-
-			$clicked.children('.acc_contents').slideToggle();
-			$clicked.children('.acc_title').toggleClass('acc_active');
-		});
 	}
 
     function detail_init(){

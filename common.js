@@ -192,8 +192,14 @@ $(document).ready(function(){
         }
     },200);
 
-    $(".buy_btns.mobile .btn.defualt.naver").addClass("nPayCustomize");
-    $(".buy_btns.mobile .btn.defualt.naver").html("장바구니");
+	if (typeof nPayCustomize === 'undefined') {
+		nPayCustomize = true;
+	}
+	if(nPayCustomize){
+		$(".buy_btns.mobile .btn.defualt.naver").addClass("nPayCustomize");
+	    $(".buy_btns.mobile .btn.defualt.naver").html("장바구니");
+	}
+
     if($(".opt_hide").length<=0){
         $(".buy_btns.mobile ._btn_buy").attr("onclick", "alert('옵션을 선택해 주세요.');");
     }

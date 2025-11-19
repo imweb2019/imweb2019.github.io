@@ -344,6 +344,7 @@ ul.moncoStyle2 .star_point a{
 .shop-content .buy_btns.mobile .n_pay .nPayCustomize{
   	color: black !important;
   	background-color: white !important;
+	border: 1px solid rgba(33, 33, 33, 0.2) !important;
 }
 
 .personal_qna_wrap #qna_form .textarea_block{

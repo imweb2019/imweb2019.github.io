@@ -198,6 +198,7 @@ $(document).ready(function(){
 	if(nPayCustomize){
 		$(".buy_btns.mobile .btn.defualt.naver").addClass("nPayCustomize");
 	    $(".buy_btns.mobile .btn.defualt.naver").html("장바구니");
+		$(".shop-content .buy_btns.mobile a.defualt-cart").addClass("nPayCustomize");
 	}
 
     if($(".opt_hide").length<=0){

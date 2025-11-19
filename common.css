@@ -337,6 +337,10 @@ ul.moncoStyle2 .star_point a{
     margin: 10px 0;
 }
 
+.shop-content .buy_btns.mobile a.defualt-cart.nPayCustomize{
+	display:none !important;
+}
+
 .shop-content .buy_btns.mobile .n_pay .nPayCustomize{
   	color: black !important;
   	background-color: white !important;

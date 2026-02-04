@@ -212,6 +212,10 @@ table.moncoStyle .title p {
 	font-size: 14px;
 }
 
+.myReview-bottom .myReview-pagination .pagination>.disabled>span{
+	background-color: inherit;
+}
+
 .myReview-bottom .myReview-pagination ul.pagination li span i{
 	vertical-align: middle;
 }

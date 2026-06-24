@@ -1,10 +1,6 @@
 .font-20{font-size:20pt;}
 .hide{display:none;}
 
-body.shop_view .companyDetailHide{
-	display: none !important;
-}
-
 footer .footer-line{
 	font-size:0.8rem;
 	margin-bottom:20px !important;
@@ -16,6 +12,11 @@ footer .footer-line>:nth-child(n+2) {
 
 footer .footer-line.fold+.inside{
     display: none !important;
+}
+
+footer .footer-line+.inside .foot-foot-nav,
+footer .footer-line+.inside .footer-company-info{
+	display:none;
 }
 
 table.moncoStyle{
